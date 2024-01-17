@@ -18,6 +18,12 @@ class Login_model extends CI_Model {
         }
     }
 
+    public function RegSave($data){
+
+        $this->db->insert('users', $data);
+        return $this->db->insert_id(); 
+    }
+
 
 }
 ?>

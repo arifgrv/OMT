@@ -50,17 +50,19 @@ class Welcome extends CI_Controller {
 	        // If validation fails, reload the form with validation errors
 	        $this->load->view('Registration');
 	    } else {
-	        // If validation passes, handle the form submission
-	        // Perform your save logic here
-
-	        // Redirect to a success page or load another view
-	        echo "<pre>";
-			print_r($_POST);
-			echo "</pre>";
-			echo $ok=implode(', ', $_POST);
+	        
+	        //save to DB
+	        $data=array(
+	        	'username'=>$_POST['username'],
+	        	'email'=>$_POST['email'],
+	        	'mobile'=>$_POST['mobile'],
+	        	'password'=>$_POST['password'],
+	        	'status'=>'1',
+	        	);
+			$result=$this->Login_model->RegSave($data);
 	    }
 
 
-		}
+	}
 	
 }

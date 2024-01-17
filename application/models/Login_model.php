@@ -27,6 +27,51 @@ class Login_model extends CI_Model {
         $query = $this->db->get_where('homepage', array('status'=> '1'))->result_array();
         return $query;
     }
+    
+    public function moviename(){
+        $query = $this->db->get_where('moviename', array('Status'=> '1'))->result_array();
+        return $query;
+    }
+
+    public function showtime(){
+        $query = $this->db->get('showtime')->result_array();
+        return $query;
+    }
+
+    public function movie_name($MN){
+        $this->db->select('MovieName');
+        $this->db->from('moviename');
+        $this->db->where('id', $MN);
+        $query  = $this->db->get()->row_array();
+        return $query;
+    }
+
+    public function show_time($st){
+        $this->db->select('ShowTime');
+        $this->db->from('showtime');
+        $this->db->where('id', $st);
+        $query  = $this->db->get()->row_array();
+        return $query;
+    }
+
+    public function checkReservations($sitNumbers, $reserveDate, $showtime, $movieName)
+    {
+        // Check if data in array exists in the 'reservation' table for the specified parameters
+        $this->db->select('seat_number');
+        $this->db->from('reservation');
+        $this->db->where_in('seat_number', $sitNumbers);
+        $this->db->where('reserve_date', $reserveDate);
+        $this->db->where('show_time', $showtime);
+        $this->db->where('movie_name', $movieName);
+
+        $query  = $this->db->get()->row_array();
+
+        if ($query) {
+            return $query;
+        }else{
+            return null;
+        }
+    }
 
 }
 ?>

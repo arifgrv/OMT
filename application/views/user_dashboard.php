@@ -51,7 +51,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><a href="#">Home</a></li>
-                    <li class="list-group-item"><a href="#">Book Sit</a></li>
+                    <li class="list-group-item"><a href="<?php echo base_url('index.php/BookTicket'); ?>">Book Sit</a></li>
                     <li class="list-group-item"><a href="#">Reprint</a></li>
                     <li class="list-group-item"><a href="#">History</a></li>
                     <li class="list-group-item"><a href="#">Change Password</a></li>

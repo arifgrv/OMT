@@ -6,7 +6,7 @@ class Login_model extends CI_Model {
 
         	'email'=> $e,
         	'password'=> $p,
-        	'Status'=> '1',
+        	'status'=> '1',
 
         ));
         
@@ -24,6 +24,10 @@ class Login_model extends CI_Model {
         return $this->db->insert_id(); 
     }
 
+    public function homepage(){
+        $query = $this->db->get_where('homepage', array('status'=> '1'))->result_array();
+        return $query;
+    }
 
 }
 ?>

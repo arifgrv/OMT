@@ -11,6 +11,12 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
+		$data['homepage']=$this->Login_model->homepage();
+		$this->load->view('homepage', $data);
+	}
+
+	public function login()
+	{
 		$this->load->view('Login');
 	}
 
@@ -21,17 +27,18 @@ class Welcome extends CI_Controller {
 
 	public function LgoCheck()
 	{
-		echo "<pre>";
-		print_r($_POST);
-		echo "</pre>";
 
-		$e=$_POST['email'];
-		$p=$_POST['password'];
-		$result=$this->Login_model->LgoCheck($e,$p);
+		$result=$this->Login_model->LgoCheck($_POST['email'],$_POST['password']);
 
-		echo "<pre>";
-		print_r($result);
-		echo "</pre>";
+		switch ($result['status']) {
+			case '1':
+				echo "Admin";
+				break;
+			
+			default:
+				echo "User";
+				break;
+		}
 
 	}
 
@@ -60,6 +67,9 @@ class Welcome extends CI_Controller {
 	        	'status'=>'1',
 	        	);
 			$result=$this->Login_model->RegSave($data);
+			if ($result) {
+				$this->load->view('Login');
+			}
 	    }
 
 

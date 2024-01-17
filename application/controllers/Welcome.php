@@ -20,6 +20,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('Login');
 	}
 
+	public function sit()
+	{
+		$this->load->view('sit');
+	}
+
+
 	public function newUser()
 	{
 		$this->load->view('Registration');
@@ -30,13 +36,14 @@ class Welcome extends CI_Controller {
 
 		$result=$this->Login_model->LgoCheck($_POST['email'],$_POST['password']);
 
+
 		switch ($result['status']) {
 			case '1':
-				echo "Admin";
+				$this->load->view('admin_dashboard');
 				break;
 			
 			default:
-				echo "User";
+				$this->load->view('user_dashboard');
 				break;
 		}
 

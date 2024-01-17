@@ -6,7 +6,6 @@ class Login_model extends CI_Model {
 
         	'email'=> $e,
         	'password'=> $p,
-        	'status'=> '1',
 
         ));
         

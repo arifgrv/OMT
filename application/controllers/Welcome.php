@@ -9,6 +9,7 @@ class Welcome extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->library('seat_reservation');
         $this->load->library('invoice_generator');
+        $this->load->library('session');
     }
 
 	public function index()
@@ -44,6 +45,10 @@ class Welcome extends CI_Controller {
 			default:
 				$this->load->view('user_dashboard');
 				break;
+		}
+
+		if (!empty($result)) {
+			$this->session->set_userdata('user_email',$_POST['email']);
 		}
 
 	}
@@ -82,6 +87,7 @@ class Welcome extends CI_Controller {
 
 	public function ticket_Search()
     {
+
         $data['moviename']=$this->Login_model->moviename();
         $data['showtime']=$this->Login_model->showtime();
         $this->load->view('ticket_Search', $data);

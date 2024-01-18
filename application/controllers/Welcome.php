@@ -151,7 +151,6 @@ class Welcome extends CI_Controller {
 		}
 
 		$invoice['invoice_record']=$this->Login_model->GetInfoByInvoice($invoice_number);
-
 		$this->load->view('invoice',$invoice);
 
 	}	

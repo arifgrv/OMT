@@ -1,3 +1,9 @@
+<?php 
+echo "<pre>";
+print_r($invoice_record);
+echo "</pre>";
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,8 +54,12 @@
     <div class="invoice">
         <div class="header">GRV Cineplex</div>
         <p>BIN: 004214822-1101 And Mushak 6.3 <br/>232, Kazihata Rajshahi, Bangladesh.</p>
-        <div class="item"><b>Invoice Number: <?php echo $invoiceNumber; ?></b></div>
-        <div class="item">Date: <?php echo date("Y-m-d h:i:s"); ?></div>
+        <div class="item"><b>Invoice Number: <?php echo $invoice_record[0]->invoice_number; ?></b></div>
+        <div class="item">Booking Date: <?php 
+                $timestamp = strtotime($invoice_record[0]->currentdate);
+                $formattedDate = date('d-m-Y', $timestamp);
+                echo  $formattedDate;
+         ?></div>
         <hr>
         <h2>MOVIE TICKET</h2>
         <hr>
@@ -57,22 +67,30 @@
             <table>
                 <tr>
                     <td>Customer Name:</td>
-                    <td><?php echo $customerName; ?></td>
+                    <td><?php echo $invoice_record[0]->customer_name; ?></td>
                 </tr>
                 <tr>
                     <td>Customer Mobile:</td>
-                    <td><?php echo $customerMobile; ?></td>
+                    <td><?php echo $invoice_record[0]->customer_mobile; ?></td>
                 </tr>
                 <tr>
                     <td>Show Information:</td>
-                    <td><?php echo $showInformation; ?></td>
+                    <td><?php echo $invoice_record[0]->reserve_date.' - '.$invoice_record[0]->movie_name.' - '.$invoice_record[0]->show_time; ?></td>
                 </tr>
             </table>
         </div>
         <hr>
         <div class="item">
             <div class="center"><b>Seat Number(s):</b></div>
-            <div class="center"><?php echo $seatNumbers; ?></div>
+            <div class="center">
+                <?php 
+                    $seatNumbersArray = array();
+                    foreach ($invoice_record as $record) {
+                        $seatNumbersArray[] = $record->seat_number;
+                    }
+                   echo implode(', ', $seatNumbersArray);
+                ?> 
+            </div>
             <hr>
         </div>
         <div class="item">

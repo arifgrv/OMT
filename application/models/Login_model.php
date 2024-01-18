@@ -89,7 +89,7 @@ class Login_model extends CI_Model {
         $query = $this->db->get_where('reservationrecord', array('invoice_number' => $id));
 
         if ($query->num_rows() > 0) {
-            return $query->result_array(); // Return all columns for the matching row
+            return $query->result(); // Return all columns for the matching row
         } else {
             return null; // or any default value you prefer
         }

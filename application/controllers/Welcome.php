@@ -113,7 +113,10 @@ class Welcome extends CI_Controller {
 	
 	public function makeResurve(){
 		
-		$data['invoice_number']=$this->invoice_generator->generateInvoiceNumber();
+		date_default_timezone_set('Asia/Dhaka');
+		$invoice_number=$this->invoice_generator->generateInvoiceNumber();
+		
+		$data['invoice_number']=$invoice_number;
 		$data['customer_name']=$_POST['name'];
 		$data['customer_mobile']=$_POST['mobile'];
 		$data['movie_name']=$_POST['show_name'];
@@ -143,15 +146,13 @@ class Welcome extends CI_Controller {
 		            break;
 		    }
 
-		    echo "<pre>";
-		    print_r($data);
-		    echo "</pre>";
 		    $this->db->insert('reservationrecord',$data);
 
 		}
 
-		echo implode(", ", $_POST['seatcheckbox']);
+		$invoice['invoice_record']=$this->Login_model->GetInfoByInvoice($invoice_number);
 
+		$this->load->view('invoice',$invoice);
 
 	}	
 }

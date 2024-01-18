@@ -35,11 +35,8 @@ class Welcome extends CI_Controller {
 
 	public function LgoCheck()
 	{
-
 		$result=$this->Login_model->LgoCheck($_POST['email'],$_POST['password']);
-
-
-		switch ($result['status']) {
+		switch ($result['acctype']) {
 			case '1':
 				$this->load->view('admin_dashboard');
 				break;

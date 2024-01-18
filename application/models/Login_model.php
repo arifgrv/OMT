@@ -2,12 +2,13 @@
 class Login_model extends CI_Model {
 
     public function LgoCheck($e,$p){
-        $query = $this->db->get_where('users', array(
-
-        	'email'=> $e,
-        	'password'=> $p,
-
-        ));
+        $query = $this->db->get_where('users', 
+            array(
+            	'email'=> $e,
+            	'password'=> $p,
+                'accstatus'=> 1,
+            )
+        );
         
         // Check if the query was successful before returning the result
         if ($query->num_rows() > 0) {

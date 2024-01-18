@@ -55,7 +55,7 @@
                     <li class="list-group-item"><a href="<?php echo base_url('index.php/reprint/211'); ?>"  target="_blank">Reprint</a></li>
                     <li class="list-group-item"><a href="#">History</a></li>
                     <li class="list-group-item"><a href="#">Change Password</a></li>
-                    <li class="list-group-item"><a href="#">Logout</a></li>
+                    <li class="list-group-item"><a href="<?php echo base_url('index.php/login'); ?>">Logout</a></li>
                 </ul>
             </div>
         </div>

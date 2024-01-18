@@ -1,15 +1,12 @@
-<?php 
-echo "<pre>";
-print_r($invoice_record);
-echo "</pre>";
- ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <title>Home Page</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -64,7 +61,10 @@ echo "</pre>";
         <h2>MOVIE TICKET</h2>
         <hr>
         <div class="item">
-            <table>
+            <div class="center"><u><b>Customer Information:</b></u></div>
+        </div>
+        <div class="item">
+            <table class="table">
                 <tr>
                     <td>Customer Name:</td>
                     <td><?php echo $invoice_record[0]->customer_name; ?></td>
@@ -74,31 +74,34 @@ echo "</pre>";
                     <td><?php echo $invoice_record[0]->customer_mobile; ?></td>
                 </tr>
                 <tr>
-                    <td>Show Information:</td>
+                    <td>Reservation Info:</td>
                     <td><?php echo $invoice_record[0]->reserve_date.' - '.$invoice_record[0]->movie_name.' - '.$invoice_record[0]->show_time; ?></td>
                 </tr>
             </table>
         </div>
         <hr>
         <div class="item">
-            <div class="center"><b>Seat Number(s):</b></div>
-            <div class="center">
-                <?php 
-                    $seatNumbersArray = array();
-                    foreach ($invoice_record as $record) {
-                        $seatNumbersArray[] = $record->seat_number;
-                    }
-                   echo implode(', ', $seatNumbersArray);
-                ?> 
-            </div>
+            <div class="center"><b>Details:</b></div>
+            <table class="table">
+                <tr>
+                    <th>SL#</th>
+                    <th>Sit Number</th>
+                    <th>Unite Price</th>
+                </tr>
+                <?php $t=0;foreach ($invoice_record as $key => $value) {?>  
+                <tr>
+                    <td><?php echo ($key+1); ?></td>
+                    <td><?php echo $value->seat_number; ?></td>
+                    <td><?php echo $value->price; ?></td>
+                </tr>
+
+                <?php $t=($t+$value->price); }; ?>
+            </table>
             <hr>
         </div>
         <div class="item">
-            <div class="Left">Unit Price: <?php echo $unitPrice; ?></div>
-            <div class="Left">Total Seats: <?php echo $totalSeats; ?></div>
-            <div class="Left">Sub Total: <?php echo $sub_total; ?></div>
+            <div class="Left"><b>Total Amount: <?php echo 'BDT '.$t. 'Tk.'; ?></b></div>
             <div class="Left">[with Includes all ADM + ACM + VAT + Movie Tax + Hall Tax]</div>
-            <div class="Left"><b>Grand Total: <?php echo number_format($sub_total,2); ?></b></div>
         </div>
         <hr>
         <div class="footer">Thank you for choosing GRV Cineplex! Enjoy the show!</div>

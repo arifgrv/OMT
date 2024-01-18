@@ -146,6 +146,7 @@ class Welcome extends CI_Controller {
 		    echo "<pre>";
 		    print_r($data);
 		    echo "</pre>";
+		    $this->db->insert('reservationrecord',$data);
 
 		}
 

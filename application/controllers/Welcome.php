@@ -8,6 +8,7 @@ class Welcome extends CI_Controller {
         $this->load->model('Login_model');
         $this->load->library('form_validation');
         $this->load->library('seat_reservation');
+        $this->load->library('invoice_generator');
     }
 
 	public function index()
@@ -111,25 +112,41 @@ class Welcome extends CI_Controller {
     }
 	
 	public function makeResurve(){
-		echo "<pre>";
-		print_r($_POST);
-		echo "</pre>";
+		
+		$data['invoice_number']=$this->invoice_generator->generateInvoiceNumber();
+		$data['customer_name']=$_POST['name'];
+		$data['customer_mobile']=$_POST['mobile'];
+		$data['movie_name']=$_POST['show_name'];
+		$data['show_time']=$_POST['show_time'];
+		$data['reserve_date']=date($_POST['show_date']);
+		$data['currentdate']=date('Y-m-d');
 		
 		foreach ($_POST['seatcheckbox'] as $seat) {
 		    switch (true) {
 		        case strpos($seat, 'VIP') !== false:
-		          echo "VIP works for $seat\n";
-		          echo $price=$this->Login_model->getTicketPriceById(3);
+		        	$id=3;
+			        $data['sitcategory']=$id;
+			        $data['seat_number']=$seat;
+			        $data['price']=$this->Login_model->getTicketPriceById($id);
 		          break;
 		        case strpos($seat, 'A') !== false:
-		            echo "A works for $seat\n";
-		            echo $price=$this->Login_model->getTicketPriceById(1);
+		        	$id=1;
+			        $data['sitcategory']=$id;
+			        $data['seat_number']=$seat;
+			        $data['price']=$this->Login_model->getTicketPriceById($id);
 		            break;
 		        default:
-		            echo "General works for $seat\n";
-		            echo $price=$this->Login_model->getTicketPriceById(2);
+		        	$id=2;
+			        $data['sitcategory']=$id;
+			        $data['seat_number']=$seat;
+			        $data['price']=$this->Login_model->getTicketPriceById($id);
 		            break;
 		    }
+
+		    echo "<pre>";
+		    print_r($data);
+		    echo "</pre>";
+
 		}
 
 		echo implode(", ", $_POST['seatcheckbox']);

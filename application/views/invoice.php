@@ -120,7 +120,7 @@
             <hr>
         </div>
         <div class="item total-amount">
-            <div>Total Amount: BDT <?php echo $totalAmount; ?> Tk.</div>
+            <div>Total Amount: BDT <?php echo number_format($totalAmount, 2, '.', ','); ?> Tk.</div>
         </div>
         <hr>
         <div class="footer">Thank you for choosing GRV Cineplex! Enjoy the show!</div>

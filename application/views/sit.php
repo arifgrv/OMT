@@ -60,6 +60,12 @@
             </div>
             <div class="col-md-12 mt-5">
                 <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-success">Select Your Sit(s)</h3>
+                        <i class="fa-solid fa-chair text-danger"> - Sold Out</i> 
+                        <br/> 
+                        <i class="fa-solid fa-chair text-primary"> - Available</i>
+                    </div>
                     <div class="card-body">
                         <!-- Seat Selection -->
                             <div class="form-group">

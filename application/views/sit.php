@@ -78,36 +78,10 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <dihv class="row">
-                                                        
-                                                            <?php 
-                                                              echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '7', 'VIP');
-                                                            ; ?>
-                                                        
-
-                                                    </div>
-
-                                                    <div class="row">
                                                         <?php 
-                                                        for ($i = 1; $i <= 7; $i++) { 
-                                                            $sitNumbers = 'VIP' . $i;
-                                                            $reservesit = $this->Login_model->checkReservations($sitNumbers, $Show_date, $show_time['ShowTime'], $Movie_Name['MovieName']);
-                                                        ?>
-                                                            <div class="col">
-                                                               <?php   if (!empty($reservesit)) {?>
-                                                                    <p class="card-text text-danger">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php  echo $sitNumbers ;?>" value="<?php echo $sitNumbers;?>" disabled>
-                                                                        <i class="fa-solid fa-chair"></i><?php echo $sitNumbers ; ?>
-                                                                    </p>
-
-                                                             <?php   }else{ ?>
-                                                                     <p class="card-text text-primary">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php echo $sitNumbers; ?>" value="<?php echo $sitNumbers ;?>" >
-                                                                        <i class="fa-solid fa-chair"></i><?php echo  $sitNumbers;?></p>
-                                                             <?php   };?> 
-                                                            </div>
-
-                                                        <?php } ;?>
-                                                    </div>                                                      
+                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '7', 'VIP');
+                                                        ; ?>
+                                                    </div>         
                                                 </div>
                                             </div>
                                         </div>                             
@@ -123,25 +97,8 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <?php 
-                                                        for ($i = 8; $i <= 15; $i++) { 
-                                                            $sitNumbers = 'VIP' . $i;
-                                                            $reservesit = $this->Login_model->checkReservations($sitNumbers, $Show_date, $show_time['ShowTime'], $Movie_Name['MovieName']);
-                                                        ?>
-                                                            <div class="col">
-                                                               <?php   if (!empty($reservesit)) {?>
-                                                                    <p class="card-text text-danger">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php  echo $sitNumbers ;?>" value="<?php echo $sitNumbers;?>" disabled>
-                                                                        <i class="fa-solid fa-chair"></i><?php echo $sitNumbers ; ?>
-                                                                    </p>
-
-                                                             <?php   }else{ ?>
-                                                                     <p class="card-text text-primary">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php echo $sitNumbers; ?>" value="<?php echo $sitNumbers ;?>" >
-                                                                        <i class="fa-solid fa-chair"></i><?php echo  $sitNumbers;?></p>
-                                                             <?php   };?> 
-                                                            </div>
-
-                                                        <?php } ;?>
+                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '8', '15', 'VIP');
+                                                        ; ?>
                                                     </div>                                                      
                                                 </div>
                                             </div>
@@ -158,249 +115,65 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <?php 
-                                                        for ($i = 1; $i <= 4; $i++) { 
-                                                            $sitNumbers = 'A' . $i;
-                                                            $reservesit = $this->Login_model->checkReservations($sitNumbers, $Show_date, $show_time['ShowTime'], $Movie_Name['MovieName']);
-                                                        ?>
-                                                            <div class="col">
-                                                               <?php   if (!empty($reservesit)) {?>
-                                                                    <p class="card-text text-danger">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php  echo $sitNumbers ;?>" value="<?php echo $sitNumbers;?>" disabled>
-                                                                        <i class="fa-solid fa-chair"></i><?php echo $sitNumbers ; ?>
-                                                                    </p>
-
-                                                             <?php   }else{ ?>
-                                                                     <p class="card-text text-primary">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php echo $sitNumbers; ?>" value="<?php echo $sitNumbers ;?>" >
-                                                                        <i class="fa-solid fa-chair"></i><?php echo  $sitNumbers;?></p>
-                                                             <?php   };?> 
-                                                            </div>
-                                                        <?php } ;?>                                                     
+                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '4', 'A');
+                                                        ; ?> 
                                                         <?php 
-                                                        for ($i = 10; $i <= 13; $i++) { 
-                                                            $sitNumbers = 'A' . $i;
-                                                            $reservesit = $this->Login_model->checkReservations($sitNumbers, $Show_date, $show_time['ShowTime'], $Movie_Name['MovieName']);
-                                                        ?>
-                                                            <div class="col">
-                                                               <?php   if (!empty($reservesit)) {?>
-                                                                    <p class="card-text text-danger">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php  echo $sitNumbers ;?>" value="<?php echo $sitNumbers;?>" disabled>
-                                                                        <i class="fa-solid fa-chair"></i><?php echo $sitNumbers ; ?>
-                                                                    </p>
-
-                                                             <?php   }else{ ?>
-                                                                     <p class="card-text text-primary">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php echo $sitNumbers; ?>" value="<?php echo $sitNumbers ;?>" >
-                                                                        <i class="fa-solid fa-chair"></i><?php echo  $sitNumbers;?></p>
-                                                             <?php   };?> 
-                                                            </div>
-                                                        <?php } ;?>
+                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '10', '13', 'A');
+                                                        ; ?>                             
                                                     </div>  
                                                     <hr>
                                                     <div class="row">
                                                         <?php 
-                                                        for ($i = 1; $i <= 13; $i++) { 
-                                                            $sitNumbers = 'B' . $i;
-                                                            $reservesit = $this->Login_model->checkReservations($sitNumbers, $Show_date, $show_time['ShowTime'], $Movie_Name['MovieName']);
-                                                        ?>
-                                                            <div class="col">
-                                                               <?php   if (!empty($reservesit)) {?>
-                                                                    <p class="card-text text-danger">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php  echo $sitNumbers ;?>" value="<?php echo $sitNumbers;?>" disabled>
-                                                                        <i class="fa-solid fa-chair"></i><?php echo $sitNumbers ; ?>
-                                                                    </p>
-
-                                                             <?php   }else{ ?>
-                                                                     <p class="card-text text-primary">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php echo $sitNumbers; ?>" value="<?php echo $sitNumbers ;?>" >
-                                                                        <i class="fa-solid fa-chair"></i><?php echo  $sitNumbers;?></p>
-                                                             <?php   };?> 
-                                                            </div>
-
-                                                        <?php } ;?>
+                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'B');
+                                                        ; ?>   
                                                     </div>
                                                     <hr>
                                                     <div class="row">
                                                         <?php 
-                                                        for ($i = 1; $i <= 13; $i++) { 
-                                                            $sitNumbers = 'C' . $i;
-                                                            $reservesit = $this->Login_model->checkReservations($sitNumbers, $Show_date, $show_time['ShowTime'], $Movie_Name['MovieName']);
-                                                        ?>
-                                                            <div class="col">
-                                                               <?php   if (!empty($reservesit)) {?>
-                                                                    <p class="card-text text-danger">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php  echo $sitNumbers ;?>" value="<?php echo $sitNumbers;?>" disabled>
-                                                                        <i class="fa-solid fa-chair"></i><?php echo $sitNumbers ; ?>
-                                                                    </p>
-
-                                                             <?php   }else{ ?>
-                                                                     <p class="card-text text-primary">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php echo $sitNumbers; ?>" value="<?php echo $sitNumbers ;?>" >
-                                                                        <i class="fa-solid fa-chair"></i><?php echo  $sitNumbers;?></p>
-                                                             <?php   };?> 
-                                                            </div>
-
-                                                        <?php } ;?>
+                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'C');
+                                                        ; ?> 
                                                     </div>  
                                                     <hr>
                                                     <div class="row">
                                                         <?php 
-                                                        for ($i = 1; $i <= 13; $i++) { 
-                                                            $sitNumbers = 'D' . $i;
-                                                            $reservesit = $this->Login_model->checkReservations($sitNumbers, $Show_date, $show_time['ShowTime'], $Movie_Name['MovieName']);
-                                                        ?>
-                                                            <div class="col">
-                                                               <?php   if (!empty($reservesit)) {?>
-                                                                    <p class="card-text text-danger">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php  echo $sitNumbers ;?>" value="<?php echo $sitNumbers;?>" disabled>
-                                                                        <i class="fa-solid fa-chair"></i><?php echo $sitNumbers ; ?>
-                                                                    </p>
-
-                                                             <?php   }else{ ?>
-                                                                     <p class="card-text text-primary">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php echo $sitNumbers; ?>" value="<?php echo $sitNumbers ;?>" >
-                                                                        <i class="fa-solid fa-chair"></i><?php echo  $sitNumbers;?></p>
-                                                             <?php   };?> 
-                                                            </div>
-
-                                                        <?php } ;?>
+                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'D');
+                                                        ; ?> 
                                                     </div>  
                                                     <hr>
                                                     <div class="row">
                                                         <?php 
-                                                        for ($i = 1; $i <= 13; $i++) { 
-                                                            $sitNumbers = 'E' . $i;
-                                                            $reservesit = $this->Login_model->checkReservations($sitNumbers, $Show_date, $show_time['ShowTime'], $Movie_Name['MovieName']);
-                                                        ?>
-                                                            <div class="col">
-                                                               <?php   if (!empty($reservesit)) {?>
-                                                                    <p class="card-text text-danger">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php  echo $sitNumbers ;?>" value="<?php echo $sitNumbers;?>" disabled>
-                                                                        <i class="fa-solid fa-chair"></i><?php echo $sitNumbers ; ?>
-                                                                    </p>
-
-                                                             <?php   }else{ ?>
-                                                                     <p class="card-text text-primary">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php echo $sitNumbers; ?>" value="<?php echo $sitNumbers ;?>" >
-                                                                        <i class="fa-solid fa-chair"></i><?php echo  $sitNumbers;?></p>
-                                                             <?php   };?> 
-                                                            </div>
-
-                                                        <?php } ;?>
+                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'E');
+                                                        ; ?> 
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row">
+                                                         <?php 
+                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'F');
+                                                        ; ?> 
                                                     </div>
                                                     <hr>
                                                     <div class="row">
                                                         <?php 
-                                                        for ($i = 1; $i <= 13; $i++) { 
-                                                            $sitNumbers = 'F' . $i;
-                                                            $reservesit = $this->Login_model->checkReservations($sitNumbers, $Show_date, $show_time['ShowTime'], $Movie_Name['MovieName']);
-                                                        ?>
-                                                            <div class="col">
-                                                               <?php   if (!empty($reservesit)) {?>
-                                                                    <p class="card-text text-danger">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php  echo $sitNumbers ;?>" value="<?php echo $sitNumbers;?>" disabled>
-                                                                        <i class="fa-solid fa-chair"></i><?php echo $sitNumbers ; ?>
-                                                                    </p>
-
-                                                             <?php   }else{ ?>
-                                                                     <p class="card-text text-primary">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php echo $sitNumbers; ?>" value="<?php echo $sitNumbers ;?>" >
-                                                                        <i class="fa-solid fa-chair"></i><?php echo  $sitNumbers;?></p>
-                                                             <?php   };?> 
-                                                            </div>
-
-                                                        <?php } ;?>
+                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'G');
+                                                        ; ?> 
                                                     </div>
                                                     <hr>
                                                     <div class="row">
                                                         <?php 
-                                                        for ($i = 1; $i <= 13; $i++) { 
-                                                            $sitNumbers = 'G' . $i;
-                                                            $reservesit = $this->Login_model->checkReservations($sitNumbers, $Show_date, $show_time['ShowTime'], $Movie_Name['MovieName']);
-                                                        ?>
-                                                            <div class="col">
-                                                               <?php   if (!empty($reservesit)) {?>
-                                                                    <p class="card-text text-danger">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php  echo $sitNumbers ;?>" value="<?php echo $sitNumbers;?>" disabled>
-                                                                        <i class="fa-solid fa-chair"></i><?php echo $sitNumbers ; ?>
-                                                                    </p>
-
-                                                             <?php   }else{ ?>
-                                                                     <p class="card-text text-primary">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php echo $sitNumbers; ?>" value="<?php echo $sitNumbers ;?>" >
-                                                                        <i class="fa-solid fa-chair"></i><?php echo  $sitNumbers;?></p>
-                                                             <?php   };?> 
-                                                            </div>
-
-                                                        <?php } ;?>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <?php 
-                                                        for ($i = 1; $i <= 13; $i++) { 
-                                                            $sitNumbers = 'H' . $i;
-                                                            $reservesit = $this->Login_model->checkReservations($sitNumbers, $Show_date, $show_time['ShowTime'], $Movie_Name['MovieName']);
-                                                        ?>
-                                                            <div class="col">
-                                                               <?php   if (!empty($reservesit)) {?>
-                                                                    <p class="card-text text-danger">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php  echo $sitNumbers ;?>" value="<?php echo $sitNumbers;?>" disabled>
-                                                                        <i class="fa-solid fa-chair"></i><?php echo $sitNumbers ; ?>
-                                                                    </p>
-
-                                                             <?php   }else{ ?>
-                                                                     <p class="card-text text-primary">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php echo $sitNumbers; ?>" value="<?php echo $sitNumbers ;?>" >
-                                                                        <i class="fa-solid fa-chair"></i><?php echo  $sitNumbers;?></p>
-                                                             <?php   };?> 
-                                                            </div>
-
-                                                        <?php } ;?>
+                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'H');
+                                                        ; ?> 
                                                     </div>  
                                                     <hr>
                                                     <div class="row">
                                                         <?php 
-                                                        for ($i = 1; $i <= 13; $i++) { 
-                                                            $sitNumbers = 'I' . $i;
-                                                            $reservesit = $this->Login_model->checkReservations($sitNumbers, $Show_date, $show_time['ShowTime'], $Movie_Name['MovieName']);
-                                                        ?>
-                                                            <div class="col">
-                                                               <?php   if (!empty($reservesit)) {?>
-                                                                    <p class="card-text text-danger">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php  echo $sitNumbers ;?>" value="<?php echo $sitNumbers;?>" disabled>
-                                                                        <i class="fa-solid fa-chair"></i><?php echo $sitNumbers ; ?>
-                                                                    </p>
-
-                                                             <?php   }else{ ?>
-                                                                     <p class="card-text text-primary">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php echo $sitNumbers; ?>" value="<?php echo $sitNumbers ;?>" >
-                                                                        <i class="fa-solid fa-chair"></i><?php echo  $sitNumbers;?></p>
-                                                             <?php   };?> 
-                                                            </div>
-
-                                                        <?php } ;?>
+                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'I');
+                                                        ; ?> 
                                                     </div>
                                                     <hr>
                                                     <div class="row">
                                                         <?php 
-                                                        for ($i = 1; $i <= 13; $i++) { 
-                                                            $sitNumbers = 'J' . $i;
-                                                            $reservesit = $this->Login_model->checkReservations($sitNumbers, $Show_date, $show_time['ShowTime'], $Movie_Name['MovieName']);
-                                                        ?>
-                                                            <div class="col">
-                                                               <?php   if (!empty($reservesit)) {?>
-                                                                    <p class="card-text text-danger">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php  echo $sitNumbers ;?>" value="<?php echo $sitNumbers;?>" disabled>
-                                                                        <i class="fa-solid fa-chair"></i><?php echo $sitNumbers ; ?>
-                                                                    </p>
-
-                                                             <?php   }else{ ?>
-                                                                     <p class="card-text text-primary">
-                                                                        <input type="checkbox" name="seatcheckbox[]" id="<?php echo $sitNumbers; ?>" value="<?php echo $sitNumbers ;?>" >
-                                                                        <i class="fa-solid fa-chair"></i><?php echo  $sitNumbers;?></p>
-                                                             <?php   };?> 
-                                                            </div>
-                                                        <?php } ;?>
+                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'J');
+                                                        ; ?> 
                                                     </div>  
                                                     <hr>                                                
                                                 </div>

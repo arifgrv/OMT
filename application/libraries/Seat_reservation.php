@@ -10,10 +10,10 @@ class Seat_reservation {
         $this->CI->load->model('Login_model'); // Load your model
     }
 
-    public function generateSeatCheckbox($showDate, $showTime, $movieName, $totalSit, $sitNum) {
+    public function generateSeatCheckbox($showDate, $showTime, $movieName, $SitStartFrom, $totalSit, $sitNum) {
         $output = '';
 
-        for ($i = 1; $i <= $totalSit; $i++) {
+        for ($i = $SitStartFrom; $i <= $totalSit; $i++) {
             $sitNumbers = $sitNum . $i;
             $reserveSit = $this->CI->Login_model->checkReservations($sitNumbers, $showDate, $showTime, $movieName);
 

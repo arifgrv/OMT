@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <title>Home Page</title>
     <style>
         body {
@@ -18,10 +19,11 @@
             border: 5px solid #231F20; /* Black */
             border-radius: 50%;
             overflow: hidden;
-            background-color:white ;
+            background-color: white;
         }
     </style>
 </head>
+
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -33,7 +35,7 @@
                         <h4 class="mb-0">Customer Information</h4>
                     </div>
                     <div class="card-body">
-                        <form action="<?php echo base_url("index.php/print") ;?>" method="POST">
+                        <form action="<?php echo base_url("index.php/print"); ?>" method="POST">
                             <div class="form-group">
                                 <label for="name">Name:</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
@@ -49,155 +51,178 @@
                             <div class="form-group">
                                 <label for="unite_price">Ticket Price</label>
                                 <select class="form-control" id="unite_price" name="unite_price" required>
-                                        <option value="1">Economy-350</option>                                    
-                                        <option value="2">Business-400</option>                                    
-                                        <option value="3">VIP Lounge-700</option>                                    
+                                    <option value="1">Economy-> BDT 350 TK.</option>
+                                    <option value="2">Business-> BDT 400 TK.</option>
+                                    <option value="3">VIP Lounge-> BDT 700 TK.</option>
                                     <!-- Add more options as needed -->
                                 </select>
                             </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 mt-5">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-success">Select Your Sit(s)</h3>
-                        <i class="fa-solid fa-chair text-danger"> - Sold Out</i> 
-                        <br/> 
-                        <i class="fa-solid fa-chair text-primary"> - Available</i>
-                    </div>
-                    <div class="card-body">
-                        <!-- Seat Selection -->
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    VIP Galary 1:
-                                                </div>
-                                                <div class="card-body">
-                                                    <dihv class="row">
-                                                        <?php 
-                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '7', 'VIP');
-                                                        ; ?>
-                                                    </div>         
-                                                </div>
+        </div>
+
+        <div class="col-md-12 mt-5">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-success">Select Your Sit(s)</h3>
+                    <p id="total_cost"></p>
+                    <i class="fa-solid fa-chair text-danger"> - Sold Out</i>
+                    &emsp;
+                    <i class="fa-solid fa-chair text-primary"> - Available</i>
+                </div>
+                <div class="card-body">
+                    <!-- Seat Selection -->
+                    <div class="form-group">
+                        <div class="container">
+                            <!-- VIP Galary 1 -->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            VIP Galary 1:
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '7', 'VIP'); ?>
                                             </div>
-                                        </div>                             
-                                    </div>
-                                </div>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    VIP Galary 2:
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <?php 
-                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '8', '15', 'VIP');
-                                                        ; ?>
-                                                    </div>                                                      
-                                                </div>
-                                            </div>
-                                        </div>                             
-                                    </div>
-                                </div>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    General Galary:
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <?php 
-                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '4', 'A');
-                                                        ; ?> 
-                                                        <?php 
-                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '10', '13', 'A');
-                                                        ; ?>                             
-                                                    </div>  
-                                                    <hr>
-                                                    <div class="row">
-                                                        <?php 
-                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'B');
-                                                        ; ?>   
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <?php 
-                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'C');
-                                                        ; ?> 
-                                                    </div>  
-                                                    <hr>
-                                                    <div class="row">
-                                                        <?php 
-                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'D');
-                                                        ; ?> 
-                                                    </div>  
-                                                    <hr>
-                                                    <div class="row">
-                                                        <?php 
-                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'E');
-                                                        ; ?> 
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                         <?php 
-                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'F');
-                                                        ; ?> 
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <?php 
-                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'G');
-                                                        ; ?> 
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <?php 
-                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'H');
-                                                        ; ?> 
-                                                    </div>  
-                                                    <hr>
-                                                    <div class="row">
-                                                        <?php 
-                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'I');
-                                                        ; ?> 
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <?php 
-                                                          echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'J');
-                                                        ; ?> 
-                                                    </div>  
-                                                    <hr>                                                
-                                                </div>
-                                            </div>
-                                        </div>                             
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- End Seat Selection -->
-
-                            <button type="submit" class="btn btn-primary">Register</button>
-                        </form>
+                            <!-- VIP Galary 2 -->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            VIP Galary 2:
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '8', '15', 'VIP'); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- General Galary -->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            General Galary:
+                                        </div>
+                                        <div class="card-body">
+                                            <!-- A -->
+                                            <div class="row">
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '4', 'A'); ?>
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '10', '13', 'A'); ?>
+                                            </div>
+                                            <hr>
+                                            <!-- B -->
+                                            <div class="row">
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'B'); ?>
+                                            </div>
+                                            <hr>
+                                            <!-- C -->
+                                            <div class="row">
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'C'); ?>
+                                            </div>
+                                            <hr>
+                                            <!-- D -->
+                                            <div class="row">
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'D'); ?>
+                                            </div>
+                                            <hr>
+                                            <!-- E -->
+                                            <div class="row">
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'E'); ?>
+                                            </div>
+                                            <hr>
+                                            <!-- F -->
+                                            <div class="row">
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'F'); ?>
+                                            </div>
+                                            <hr>
+                                            <!-- G -->
+                                            <div class="row">
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'G'); ?>
+                                            </div>
+                                            <hr>
+                                            <!-- H -->
+                                            <div class="row">
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'H'); ?>
+                                            </div>
+                                            <hr>
+                                            <!-- I -->
+                                            <div class="row">
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'I'); ?>
+                                            </div>
+                                            <hr>
+                                            <!-- J -->
+                                            <div class="row">
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'J'); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success mt-3 btn-lg">Reserve</button>
                     </div>
+                    <!-- End Seat Selection -->
                 </div>
             </div>
-
         </div>
     </div>
-<footer class="mt-5">
-  Design and Developed by : www.iarifbd.com
-</footer>
+    </div>
+    <footer class="mt-5">
+        Design and Developed by: www.iarifbd.com
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Function to calculate total cost
+    function calculateTotal() {
+        // Define ticket prices
+        var vipPrice = 700;
+        var aPrice = 350;
+        var generalPrice = 400;
+
+        // Get the number of selected seats
+        var selectedSeats = document.querySelectorAll('input[name="seatcheckbox[]"]:checked').length;
+
+        // Calculate total cost based on the selected seats
+        var totalCost = 0;
+
+        document.querySelectorAll('input[name="seatcheckbox[]"]:checked').forEach(function (checkbox) {
+            var sitNumber = checkbox.id.toUpperCase(); // Convert to uppercase for case-insensitive comparison
+            if (sitNumber.includes('VIP')) {
+                totalCost += vipPrice;
+            } else if (sitNumber.includes('A')) {
+                totalCost += aPrice;
+            } else {
+                totalCost += generalPrice;
+            }
+        });
+
+        // Display the total cost
+        document.getElementById('total_cost').innerText = 'Total Cost: $' + totalCost;
+    }
+
+    // Attach the calculateTotal function to the change event of seat checkboxes
+    var seatCheckboxes = document.querySelectorAll('input[name="seatcheckbox[]"]');
+    seatCheckboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', calculateTotal);
+    });
+
+    // Calculate total cost once on page load
+    calculateTotal();
+</script>
+
+
 
 </body>
 

@@ -73,5 +73,17 @@ class Login_model extends CI_Model {
         }
     }
 
+    public function getTicketPriceById($id) {
+        $this->db->select('TicketPrice');
+        $query = $this->db->get_where('sitcategory', array('id' => $id));
+
+        if ($query->num_rows() > 0) {
+            return $query->row()->TicketPrice;
+        } else {
+            return null; // or any default value you prefer
+        }
+    }
+
+
 }
 ?>

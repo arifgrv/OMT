@@ -118,16 +118,21 @@ class Welcome extends CI_Controller {
 		foreach ($_POST['seatcheckbox'] as $seat) {
 		    switch (true) {
 		        case strpos($seat, 'VIP') !== false:
-		            echo "VIP works for $seat\n";
-		            break;
+		          echo "VIP works for $seat\n";
+		          echo $price=$this->Login_model->getTicketPriceById(3);
+		          break;
 		        case strpos($seat, 'A') !== false:
 		            echo "A works for $seat\n";
+		            echo $price=$this->Login_model->getTicketPriceById(1);
 		            break;
 		        default:
 		            echo "General works for $seat\n";
+		            echo $price=$this->Login_model->getTicketPriceById(2);
 		            break;
 		    }
 		}
+
+		echo implode(", ", $_POST['seatcheckbox']);
 
 
 	}	

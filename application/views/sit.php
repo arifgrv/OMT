@@ -48,15 +48,6 @@
                             <?php echo form_hidden('show_name', $Movie_Name['MovieName']); ?>
                             <?php echo form_hidden('show_date', $Show_date); ?>
                             <?php echo form_hidden('show_time', $show_time['ShowTime']); ?>
-                            <div class="form-group">
-                                <label for="unite_price">Ticket Price</label>
-                                <select class="form-control" id="unite_price" name="unite_price" required>
-                                    <option value="1">Economy-> BDT 350 TK.</option>
-                                    <option value="2">Business-> BDT 400 TK.</option>
-                                    <option value="3">VIP Lounge-> BDT 700 TK.</option>
-                                    <!-- Add more options as needed -->
-                                </select>
-                            </div>
                     </div>
                 </div>
             </div>
@@ -66,7 +57,6 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="text-success">Select Your Sit(s)</h3>
-                    <p id="total_cost"></p>
                     <i class="fa-solid fa-chair text-danger"> - Sold Out</i>
                     &emsp;
                     <i class="fa-solid fa-chair text-primary"> - Available</i>
@@ -168,6 +158,7 @@
                                 </div>
                             </div>
                         </div>
+                        <h5 id="total_cost"></h5>
                         <button type="submit" class="btn btn-success mt-3 btn-lg">Reserve</button>
                     </div>
                     <!-- End Seat Selection -->
@@ -209,7 +200,7 @@
         });
 
         // Display the total cost
-        document.getElementById('total_cost').innerText = 'Total Cost: $' + totalCost;
+        document.getElementById('total_cost').innerText = 'Total Bill: BTD - ' + totalCost + 'Tk.';
     }
 
     // Attach the calculateTotal function to the change event of seat checkboxes

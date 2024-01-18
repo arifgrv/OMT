@@ -77,6 +77,15 @@
                                                     VIP Galary 1:
                                                 </div>
                                                 <div class="card-body">
+                                                    <dihv class="row">
+                                                        
+                                                            <?php 
+                                                              echo   $seatCheckboxHTML = $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '7', 'VIP');
+                                                            ; ?>
+                                                        
+
+                                                    </div>
+
                                                     <div class="row">
                                                         <?php 
                                                         for ($i = 1; $i <= 7; $i++) { 

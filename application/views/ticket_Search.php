@@ -30,7 +30,7 @@
                     <div class="card-header text-center">
                     	<h1>Welcome to GRV Cineplex! </h1>
                     	<img class="rounded-image" src="<?php echo base_url('Assets/grv-transprent-logo.png'); ?>" width="100" height="100">
-                        <h4 class="mb-0">Booking Register</h4>
+                        <h4 class="mb-0">Movie Information</h4>
                     </div>
                     <div class="card-body">
                         <form action="<?php echo base_url('index.php/SitPlan') ;?>" method="POST"> 

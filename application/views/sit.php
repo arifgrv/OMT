@@ -35,7 +35,7 @@
                         <h4 class="mb-0">Customer Information</h4>
                     </div>
                     <div class="card-body">
-                        <form action="<?php echo base_url("index.php/print"); ?>" method="POST">
+                        <form action="<?php echo base_url("index.php/makeResurve"); ?>" method="POST">
                             <div class="form-group">
                                 <label for="name">Name:</label>
                                 <input type="text" class="form-control" id="name" name="name" required>

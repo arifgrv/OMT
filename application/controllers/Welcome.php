@@ -110,6 +110,25 @@ class Welcome extends CI_Controller {
          $this->load->view('sit', $data);
     }
 	
+	public function makeResurve(){
+		echo "<pre>";
+		print_r($_POST);
+		echo "</pre>";
+		
+		foreach ($_POST['seatcheckbox'] as $seat) {
+		    switch (true) {
+		        case strpos($seat, 'VIP') !== false:
+		            echo "VIP works for $seat\n";
+		            break;
+		        case strpos($seat, 'A') !== false:
+		            echo "A works for $seat\n";
+		            break;
+		        default:
+		            echo "General works for $seat\n";
+		            break;
+		    }
+		}
 
-	
+
+	}	
 }

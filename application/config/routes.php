@@ -14,3 +14,4 @@ $route['LgoCheck'] = 'Welcome/LgoCheck';
 $route['RegSave'] = 'Welcome/RegSave';
 $route['BookTicket'] = 'Welcome/ticket_Search';
 $route['SitPlan'] = 'Welcome/TicketBookingService';
+$route['makeResurve'] = 'Welcome/makeResurve';

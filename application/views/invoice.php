@@ -123,7 +123,7 @@
             <div>Total Amount: BDT <?php echo number_format($totalAmount, 2, '.', ','); ?> Tk.</div>
         </div>
         <hr>
-        <p>[with Includes all ADM + ACM + VAT + Movie Tax + Hall Tax]</p>
+        <p class="item">[with Includes all ADM + ACM + VAT + Movie Tax + Hall Tax]</p>
         <hr>
         <div class="footer">Thank you for choosing GRV Cineplex! Enjoy the show!</div>
     </div>

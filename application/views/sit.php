@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="card-body">
                                             <div class="row">
-                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '7', 'VIP'); ?>
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '8', 'VIP'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                                         </div>
                                         <div class="card-body">
                                             <div class="row">
-                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '8', '15', 'VIP'); ?>
+                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '9', '15', 'VIP'); ?>
                                             </div>
                                         </div>
                                     </div>

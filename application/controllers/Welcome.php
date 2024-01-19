@@ -176,7 +176,7 @@ class Welcome extends CI_Controller {
 				        $data['seat_number']=$seat;
 				        $data['price']=$this->Login_model->getTicketPriceById($id);
 			          break;
-			        case strpos($seat, 'A') !== false:
+			        case strpos($seat, 'J') !== false:
 			        	$id=1;
 				        $data['sitcategory']=$id;
 				        $data['seat_number']=$seat;

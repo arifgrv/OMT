@@ -208,4 +208,18 @@ class Welcome extends CI_Controller {
 		$invoice['invoice_record']=$this->Login_model->GetInfoByInvoice($invoice_number);
 		$this->load->view('invoice',$invoice);
 	}
+
+	public function Accounts()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+            $fromDate=date($_POST['Date_From']);
+            $toDate=date($_POST['Date_TO']);
+            $data['result']=$this->Login_model->Accounts_data_FromTO($fromDate, $toDate);
+            $this->load->view('accounts',$data);
+        }else{
+            redirect(base_url('index.php/login')); 
+        }
+    }
+
 }

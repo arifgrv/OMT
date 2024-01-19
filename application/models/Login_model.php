@@ -96,7 +96,18 @@ class Login_model extends CI_Model {
         }
     }
 
+    public function Accounts_data_FromTO($fromDate, $toDate) {
+        $this->db->where('reserve_date >=', $fromDate);
+        $this->db->where('reserve_date <=', $toDate);
+        $query = $this->db->get('reservationrecord');
 
+        // Check if the query was successful before returning the result
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return array(); // Return an empty array if no data is found
+        }
+    }
 
 }
 ?>

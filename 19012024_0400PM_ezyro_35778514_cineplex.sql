@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: sql307.ezyro.com
--- Generation Time: Jan 19, 2024 at 01:01 AM
+-- Generation Time: Jan 19, 2024 at 04:49 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.2.22
 
@@ -136,9 +136,9 @@ CREATE TABLE `homepage` (
 
 INSERT INTO `homepage` (`id`, `poster`, `Show_Name`, `Show_Date`, `Show_Time`, `Status`) VALUES
 (1, 'Assets/Add1.jpg', 'DUNKI', 'Ended', '03:00 PM, 06:00 PM, 09:00PM', 2),
-(2, 'Assets/Add2.jpg', 'ANIMAL', 'Running', '03:00 PM, 06:00 PM, 09:00PM', 1),
-(3, 'Assets/Add3.jpg', 'HUBBA', 'Coming on 19-01-2024', '03:00 PM, 06:00 PM, 09:00PM', 1),
-(4, 'Assets/Add4.jpg', 'FIGHTER', 'Coming on 25-01-2024', '03:00 PM, 06:00 PM, 09:00PM', 1);
+(2, 'Assets/Add2.jpg', 'ANIMAL', 'Ended', '03:00 PM, 06:00 PM, 09:00PM', 2),
+(3, 'Assets/Add3.jpg', 'HUBBA', 'Running', '06:00 PM, 07:00 PM, 09:00 PM', 1),
+(4, 'Assets/Add4.jpg', 'FIGHTER', 'Coming on 25-01-2024', '07:00 PM, 09:00 PM', 1);
 
 -- --------------------------------------------------------
 
@@ -158,7 +158,7 @@ CREATE TABLE `moviename` (
 
 INSERT INTO `moviename` (`id`, `MovieName`, `Status`) VALUES
 (1, 'DUNKI', 2),
-(2, 'ANIMAL', 1),
+(2, 'ANIMAL', 2),
 (3, 'HUBBA', 1),
 (4, 'FIGHTER', 1);
 
@@ -385,6 +385,42 @@ INSERT INTO `reservation` (`id`, `invoice_number`, `reserve_date`, `customer_nam
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reservationrecord`
+--
+
+CREATE TABLE `reservationrecord` (
+  `id` int(11) NOT NULL,
+  `invoice_number` varchar(100) NOT NULL,
+  `customer_name` varchar(100) NOT NULL,
+  `customer_mobile` varchar(100) NOT NULL,
+  `movie_name` varchar(100) NOT NULL,
+  `show_time` varchar(100) NOT NULL,
+  `reserve_date` date NOT NULL,
+  `currentdate` date NOT NULL,
+  `sitcategory` varchar(100) NOT NULL,
+  `seat_number` varchar(100) NOT NULL,
+  `price` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reservationrecord`
+--
+
+INSERT INTO `reservationrecord` (`id`, `invoice_number`, `customer_name`, `customer_mobile`, `movie_name`, `show_time`, `reserve_date`, `currentdate`, `sitcategory`, `seat_number`, `price`) VALUES
+(1, '129', 'MR. TOUFIQUR', '01712040004', 'HUBBA', '03:00 PM', '2024-01-19', '2024-01-19', '2', 'J6', '350.00'),
+(2, '129', 'MR. TOUFIQUR', '01712040004', 'HUBBA', '03:00 PM', '2024-01-19', '2024-01-19', '2', 'J7', '350.00'),
+(3, '130', 'MR. RAHEN', '01715170742', 'HUBBA', '03:00 PM', '2024-01-19', '2024-01-19', '2', 'C8', '400.00'),
+(4, '130', 'MR. RAHEN', '01715170742', 'HUBBA', '03:00 PM', '2024-01-19', '2024-01-19', '2', 'C9', '400.00'),
+(5, '130', 'MR. RAHEN', '01715170742', 'HUBBA', '03:00 PM', '2024-01-19', '2024-01-19', '2', 'C10', '400.00'),
+(6, '117', 'MR.WASIF', '01746857273', 'HUBBA', '06:00 PM', '2024-01-19', '2024-01-16', '2', 'B6', '400.00'),
+(7, '117', 'MR.WASIF', '01746857273', 'HUBBA', '06:00 PM', '2024-01-19', '2024-01-16', '2', 'B7', '400.00'),
+(8, '117', 'MR.WASIF', '01746857273', 'HUBBA', '06:00 PM', '2024-01-19', '2024-01-16', '2', 'B8', '400.00'),
+(9, '128', 'MR. SHOHAG', '01736236717', 'HUBBA', '03:00 PM', '2024-01-19', '2024-01-17', '2', 'C6', '400.00'),
+(10, '128', 'MR. SHOHAG', '01736236717', 'HUBBA', '03:00 PM', '2024-01-19', '2024-01-17', '2', 'C7', '400.00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `showtime`
 --
 
@@ -400,7 +436,8 @@ CREATE TABLE `showtime` (
 INSERT INTO `showtime` (`id`, `ShowTime`) VALUES
 (1, '03:00 PM'),
 (2, '06:00 PM'),
-(3, '09:00 PM');
+(3, '07:00 PM'),
+(4, '09:00 PM');
 
 -- --------------------------------------------------------
 
@@ -423,6 +460,30 @@ INSERT INTO `sitcategory` (`id`, `CategoryName`, `TicketPrice`, `Status`) VALUES
 (1, 'Economy ', '350.00', 1),
 (2, 'Business', '400.00', 1),
 (3, 'VIP Lounge', '700.00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `mobile` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `acctype` varchar(10) NOT NULL DEFAULT '2',
+  `accstatus` varchar(10) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `mobile`, `password`, `acctype`, `accstatus`) VALUES
+(1, 'Arifur Rahman', 'it.manager.arifbd@gmail.com', '01911946693', '123456', '1', '1'),
+(2, 'GRV Cineplex Counter', 'GRVCC@GRVH.COM', '12345678910', '123456', '1', '1');
 
 --
 -- Indexes for dumped tables
@@ -453,6 +514,12 @@ ALTER TABLE `reservation`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `reservationrecord`
+--
+ALTER TABLE `reservationrecord`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `showtime`
 --
 ALTER TABLE `showtime`
@@ -462,6 +529,12 @@ ALTER TABLE `showtime`
 -- Indexes for table `sitcategory`
 --
 ALTER TABLE `sitcategory`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -493,16 +566,28 @@ ALTER TABLE `reservation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 
 --
+-- AUTO_INCREMENT for table `reservationrecord`
+--
+ALTER TABLE `reservationrecord`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `showtime`
 --
 ALTER TABLE `showtime`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sitcategory`
 --
 ALTER TABLE `sitcategory`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

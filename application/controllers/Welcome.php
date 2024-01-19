@@ -215,13 +215,13 @@ class Welcome extends CI_Controller {
 
             $fromDate=date($_POST['Date_From']);
             $toDate=date($_POST['Date_TO']);
-            $data['result']=$this->Login_model->Accounts_data_FromTO($fromDate, $toDate);
+            $data['accReport']=$this->Login_model->Accounts_data_FromTO($fromDate, $toDate);
             $this->load->view('accounts',$data);
         }else{
         	date_default_timezone_set('Asia/Dhaka');
             $fromDate=date('Y-m-d');
             $toDate=date('Y-m-d');
-            $data['result']=$this->Login_model->Accounts_data_FromTO($fromDate, $toDate);
+            $data['accReport']=$this->Login_model->Accounts_data_FromTO($fromDate, $toDate);
             $this->load->view('accounts',$data);
         }
     }

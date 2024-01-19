@@ -45,7 +45,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="show_date">Show Date:</label>
-                                <input class="form-control" type="date" name="show_date" id="show_date">
+                                <input class="form-control" type="date" name="show_date" id="show_date" value="<?php echo date('Y-m-d');?>">
                             </div>
                             <div class="form-group">
                                 <label for="show_time">Show Time:</label>

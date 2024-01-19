@@ -1,0 +1,5 @@
+	'hostname' => 'sql307.ezyro.com',
+	'username' => 'ezyro_35778514',
+	'password' => '569fadcccb6',
+	'database' => 'ezyro_35778514_cineplex',
+	'dbdriver' => 'mysqli',

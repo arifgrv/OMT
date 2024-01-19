@@ -7,23 +7,59 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Day wise Accounts Report</title>
+    <style type="text/css">
+
+
+        .rounded-image {
+            width: 100px;
+            height: 100px;
+            border: 5px solid #231F20; /* Black */
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #BB9642; /* Golden */
+        }
+
+        .bg-light {
+            background-color: #BB9642; /* Golden */
+            color: #231F20; /* Black */
+        }
+
+        .btn-primary {
+            background-color: #BB9642; /* Golden */
+            border-color: #BB9642; /* Golden */
+        }
+
+        .btn-primary:hover {
+            background-color: #7F5D1D; /* Darker Golden */
+            border-color: #7F5D1D; /* Darker Golden */
+        }
+
+
+        #salesTable th,
+        #salesTable td {
+            border-color: #231F20; /* Black */
+        }
+    </style>
 </head>
 
 <body>
 
-    <?php 
-        echo "<pre>";
-       print_r($accReport);
-        echo "</pre>";
-     ?>
-    <div class="container mt-5">
-        <div style=" text-align: center;">
-            <img src="<?php echo base_url('grv-transprent-logo.png'); ?>" width="100" height="100">
-            <h3>Day wise Accounts Report : <?php echo $current_date; ?> (y-m-d)</h3>
+    <div class="container">
+        <div style="text-align: center;">
+            <img class="rounded-image" src="<?php echo base_url('Assets/grv-transprent-logo.png'); ?>" width="100" height="100">
+            <h3><u>GRV Cineplex Sales Report</u></h3>
         </div>
 
         <form action="<?php echo base_url("index.php/accountsreport"); ?>" method="POST">
-            <div class="row mt-5 mb-5 bg-light">
+            <div class="row bg-light p-3">
                 <div class="col-md-4">
                     <label for="Date_From">From:</label>
                     <input class="form-control" type="date" name="Date_From" required>
@@ -35,10 +71,10 @@
                 <div class="col-md-4 text-center mt-2">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
-            </div>  
+            </div>
         </form>
 
-        <table id="salesTable" class="table table-striped table-bordered">
+        <table id="salesTable" class="table table-striped table-bordered mt-3">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -48,35 +84,35 @@
                     <th>Customer Mobile</th>
                     <th>Show Information</th>
                     <th>Seat Numbers</th>
-                    <th>Ticket Price</th>                    
+                    <th>Ticket Price</th>
                 </tr>
             </thead>
             <tbody>
 
-            <?php $TT=0;$ticket=0; ?> 
-            <?php foreach ($accReport as $key => $row) {?>
-                <tr>
-                    <td><?php echo ($key+1) ?></td>
-                    <td><?php echo $row['invoice_number']; ?></td>
-                    <td><?php echo $row['currentdate']; ?></td>
-                    <td><?php echo $row['customer_name']; ?></td>
-                    <td><?php echo $row['customer_mobile']; ?></td>
-                    <td><?php echo $row['reserve_date'].' - '.$row['movie_name'].' - '.$row['show_time']; ?></td>
-                    <td><?php echo $row['seat_number']; ?></td>
-                    <td><?php echo $row['price']; ?></td>
-                </tr>
-              <?php 
-              $TotalSit=($TT+1); 
-              $TotalCollection=$ticket+$row['price'];
+                <?php $TotalSit = 0;
+                $TotalCollection = 0; ?>
+                <?php foreach ($accReport as $key => $row) { ?>
+                    <tr>
+                        <td><?php echo ($key + 1) ?></td>
+                        <td><?php echo $row['invoice_number']; ?></td>
+                        <td><?php echo $row['currentdate']; ?></td>
+                        <td><?php echo $row['customer_name']; ?></td>
+                        <td><?php echo $row['customer_mobile']; ?></td>
+                        <td><?php echo $row['reserve_date'] . ' - ' . $row['movie_name'] . ' - ' . $row['show_time']; ?></td>
+                        <td><?php echo $row['seat_number']; ?></td>
+                        <td><?php echo $row['price']; ?></td>
+                    </tr>
+                    <?php
+                    $TotalSit = ($TotalSit + 1);
+                    $TotalCollection = $TotalCollection + $row['price'];
+                }; ?>
 
-            }; ?>
-             
                 <!-- Sales data will be dynamically loaded here -->
                 <tr>
-                    <td colspan="9"> <b>Total Sit : <?php echo $TotalSit ;?></b></td>
+                    <td colspan="9"> <b>Total Sit : <?php echo $TotalSit; ?></b></td>
                 </tr>
                 <tr>
-                    <td colspan="9"> <b>Total Collection : <?php echo $TotalCollection ;?></b></td>
+                    <td colspan="9"> <b>Total Collection : <?php echo number_format($TotalCollection, 2); ?></b></td>
                 </tr>
             </tbody>
 
@@ -87,8 +123,6 @@
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-   
 
 </body>
 

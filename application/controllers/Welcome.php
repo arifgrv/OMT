@@ -209,7 +209,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('invoice',$invoice);
 	}
 
-	public function Accounts()
+	public function AccountsReport()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -218,7 +218,11 @@ class Welcome extends CI_Controller {
             $data['result']=$this->Login_model->Accounts_data_FromTO($fromDate, $toDate);
             $this->load->view('accounts',$data);
         }else{
-            redirect(base_url('index.php/login')); 
+        	date_default_timezone_set('Asia/Dhaka');
+            $fromDate=date('Y-m-d');
+            $toDate=date('Y-m-d');
+            $data['result']=$this->Login_model->Accounts_data_FromTO($fromDate, $toDate);
+            $this->load->view('accounts',$data);
         }
     }
 

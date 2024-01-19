@@ -24,15 +24,13 @@
         <div class="row mt-5 mb-5 bg-light">
 
             <form action="<?php echo base_url("index.php/accounts") ;?>" method="POST">
-                <div class="col">
-                    <label for="Date_From">From:</label>
+                <div class="col-md-12">
+                    From:
                     <input class="form-control" type="date" name="Date_From">
+                    To:
+                    <input class="form-control" type="date" name="Date_TO">  
+                    <button type="submit" class="btn btn-primary">Search</button>  
                 </div>
-                <div class="col">
-                    <label  for="Date_TO">To:</label>
-                    <input class="form-control" type="date" name="Date_TO">   
-                </div>                
-                <button type="submit" class="btn btn-primary">Search</button>          
             </form>
         </div>
         <table id="salesTable" class="table table-striped table-bordered">

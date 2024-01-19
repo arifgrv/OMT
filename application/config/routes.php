@@ -7,7 +7,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['accounts'] = 'Welcome/Accounts';
+$route['accountsreport'] = 'Welcome/AccountsReport';
 
 $route['home'] = 'Welcome/index';
 $route['newUser'] = 'Welcome/newUser';

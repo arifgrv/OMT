@@ -23,6 +23,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('Login');
 	}
 
+	public function logout() {
+        $this->session->unset_userdata('user_email');
+        $this->session->sess_destroy();
+        $this->load->view('Login');
+    }
+
 	public function sit()
 	{
 		$this->load->view('sit');
@@ -33,29 +39,42 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('Registration');
 	}
+  	
+  	public function is_logged_in() {
+        if ($this->session->userdata('user_email') == null) {
+        	$this->load->view('Login');
+        }
+    }
 
 	public function LgoCheck()
 	{
-		$result=$this->Login_model->LgoCheck($_POST['email'],$_POST['password']);
-		switch ($result['acctype']) {
-			case '1':
-				$this->load->view('admin_dashboard');
-				break;
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			$result=$this->Login_model->LgoCheck($_POST['email'],$_POST['password']);
 			
-			default:
-				$this->load->view('user_dashboard');
-				break;
+			if (!empty($result)) {
+				//Show Dashboard
+				switch ($result['acctype']) {
+					case '1':
+						$this->load->view('admin_dashboard');
+						break;
+					
+					default:
+						$this->load->view('user_dashboard');
+						break;
+				}
+				//Set Session Data
+				$this->session->set_userdata('user_email',$_POST['email']);
+			}else{
+				$this->load->view('Login');
+			}
+		}else{
+			$this->load->view('Login');
 		}
-
-		if (!empty($result)) {
-			$this->session->set_userdata('user_email',$_POST['email']);
-		}
-
 	}
 
 	public function RegSave()
 	{
-
+		
 		// Set validation rules
 	    $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]|max_length[50]');
 	    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
@@ -87,6 +106,8 @@ class Welcome extends CI_Controller {
 
 	public function ticket_Search()
     {
+    	//Login Check
+    	$this->is_logged_in();
 
         $data['moviename']=$this->Login_model->moviename();
         $data['showtime']=$this->Login_model->showtime();
@@ -95,9 +116,12 @@ class Welcome extends CI_Controller {
 
     public function TicketBookingService()
     {
-         $MV_Name = $this->input->post('show_name');
-         $Show_date = date('Y-m-d', strtotime($this->input->post('show_date')));
-         $showtime = $this->input->post('show_time');
+    	//Login Check
+    	$this->is_logged_in();
+
+        $MV_Name = $this->input->post('show_name');
+        $Show_date = date('Y-m-d', strtotime($this->input->post('show_date')));
+        $showtime = $this->input->post('show_time');
 
         // Set the timezone to Asian/Dhaka
         date_default_timezone_set('Asia/Dhaka');
@@ -115,7 +139,10 @@ class Welcome extends CI_Controller {
     }
 	
 	public function makeResurve(){
-		
+
+		//Login Check
+    	$this->is_logged_in();
+
 		date_default_timezone_set('Asia/Dhaka');
 		$invoice_number=$this->invoice_generator->generateInvoiceNumber();
 		
@@ -159,6 +186,9 @@ class Welcome extends CI_Controller {
 	}	
 
 	public function reprint($invoice_number){
+		//Login Check
+    	$this->is_logged_in();
+
 		$invoice['invoice_record']=$this->Login_model->GetInfoByInvoice($invoice_number);
 		$this->load->view('invoice',$invoice);
 	}

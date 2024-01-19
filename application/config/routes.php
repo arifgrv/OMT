@@ -9,6 +9,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['newUser'] = 'Welcome/newUser';
 $route['login'] = 'Welcome/login';
+$route['logout'] = 'Welcome/logout';
 
 $route['LgoCheck'] = 'Welcome/LgoCheck';
 $route['RegSave'] = 'Welcome/RegSave';

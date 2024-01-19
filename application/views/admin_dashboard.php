@@ -55,7 +55,7 @@
                     <li class="list-group-item"><a href="<?php echo base_url('index.php/reprint/211'); ?>"  target="_blank">Reprint</a></li>
                     <li class="list-group-item"><a href="#">Accounts</a></li>
                     <li class="list-group-item"><a href="#">Change Password</a></li>
-                    <li class="list-group-item"><a href="<?php echo base_url('index.php/login'); ?>">Logout</a></li>
+                    <li class="list-group-item"><a href="<?php echo base_url('index.php/logout'); ?>">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -64,7 +64,8 @@
                 <div class="rounded-image mx-auto mt-2">
                    <img class="img-fluid" alt="LOGO" src="<?php echo base_url('Assets/grv-transprent-logo.png'); ?>" width="100" height="100">
                 </div>
-                <h1 class="display-4">Welcome to GRV Cineplex!</h1>
+                <h1>Hi! <?php echo $this->session->userdata('user_email'); ?></h1>
+                <h3 class="display-4">Welcome to GRV Cineplex!</h3>
                 <p class="lead">Where luxury meets entertainment! <br/>Experience a delightful stay and immerse yourself in a world of cinematic indulgence at our premier hotel.</p>
             </div>
         </div>

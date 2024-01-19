@@ -26,7 +26,7 @@ class Welcome extends CI_Controller {
 	public function logout() {
         $this->session->unset_userdata('user_email');
         $this->session->sess_destroy();
-        $this->load->view('Login');
+        redirect(base_url('index.php/home')); 
     }
 
 	public function sit()

@@ -7,6 +7,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
+$route['home'] = 'Welcome/index';
 $route['newUser'] = 'Welcome/newUser';
 $route['login'] = 'Welcome/login';
 $route['logout'] = 'Welcome/logout';

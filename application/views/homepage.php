@@ -60,7 +60,7 @@
                     <h3 class="card-title"><?php echo $value['Show_Name']; ?></h3>
                     <h5 class="card-text"><?php echo $value['Show_Date']; ?></h5>
                     <p class="card-text"><?php echo $value['Show_Time']; ?></p>
-                    <a href="<?php echo base_url('index.php/login'); ?>" class="btn btn-primary">Book Now</a>
+                    <a href="<?php echo base_url('index.php/login'); ?>" class="btn btn-primary">login</a>
                 </div>
             </div>
         </div>

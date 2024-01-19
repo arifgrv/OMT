@@ -192,7 +192,7 @@
             var sitNumber = checkbox.id.toUpperCase(); // Convert to uppercase for case-insensitive comparison
             if (sitNumber.includes('VIP')) {
                 totalCost += vipPrice;
-            } else if (sitNumber.includes('A')) {
+            } else if (sitNumber.includes('J')) {
                 totalCost += aPrice;
             } else {
                 totalCost += generalPrice;

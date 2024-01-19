@@ -121,26 +121,32 @@ class Welcome extends CI_Controller {
 
     public function TicketBookingService()
     {
+
     	//Login Check
     	$this->is_logged_in();
+    	
+    	// viw sit plan 
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	        $MV_Name = $this->input->post('show_name');
+	        $Show_date = date('Y-m-d', strtotime($this->input->post('show_date')));
+	        $showtime = $this->input->post('show_time');
 
-        $MV_Name = $this->input->post('show_name');
-        $Show_date = date('Y-m-d', strtotime($this->input->post('show_date')));
-        $showtime = $this->input->post('show_time');
+	        // Set the timezone to Asian/Dhaka
+	        date_default_timezone_set('Asia/Dhaka');
 
-        // Set the timezone to Asian/Dhaka
-        date_default_timezone_set('Asia/Dhaka');
+	        $data = array(
+	            'current_date' => date('Y-m-d'),
+	            'Movie_Name' => $this->Login_model->movie_name($MV_Name),
+	            'show_time' => $this->Login_model->show_time($showtime),
+	            'Show_date' => $Show_date,
+	            'MV_ID' => $MV_Name,
+	            'Show_ID' => $showtime,
+	        );
 
-        $data = array(
-            'current_date' => date('Y-m-d'),
-            'Movie_Name' => $this->Login_model->movie_name($MV_Name),
-            'show_time' => $this->Login_model->show_time($showtime),
-            'Show_date' => $Show_date,
-            'MV_ID' => $MV_Name,
-            'Show_ID' => $showtime,
-        );
-
-         $this->load->view('sit', $data);
+	         $this->load->view('sit', $data);
+	    }else{
+	    	redirect(base_url('index.php/BookTicket')); 
+	    }
     }
 	
 	public function makeResurve(){

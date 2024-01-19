@@ -42,7 +42,7 @@ class Welcome extends CI_Controller {
   	
   	public function is_logged_in() {
         if ($this->session->userdata('user_email') == null) {
-        	$this->load->view('Login');
+        	redirect(base_url('index.php/login')); 
         }
     }
 
@@ -52,6 +52,9 @@ class Welcome extends CI_Controller {
 			$result=$this->Login_model->LgoCheck($_POST['email'],$_POST['password']);
 			
 			if (!empty($result)) {
+				//Set Session Data
+				$this->session->set_userdata('user_email',$_POST['email']);
+
 				//Show Dashboard
 				switch ($result['acctype']) {
 					case '1':
@@ -62,13 +65,11 @@ class Welcome extends CI_Controller {
 						$this->load->view('user_dashboard');
 						break;
 				}
-				//Set Session Data
-				$this->session->set_userdata('user_email',$_POST['email']);
 			}else{
-				$this->load->view('Login');
+				redirect(base_url('index.php/login')); 
 			}
 		}else{
-			$this->load->view('Login');
+			redirect(base_url('index.php/login')); 
 		}
 	}
 
@@ -94,7 +95,7 @@ class Welcome extends CI_Controller {
 	        	'email'=>$_POST['email'],
 	        	'mobile'=>$_POST['mobile'],
 	        	'password'=>$_POST['password'],
-	        	'status'=>'1',
+	        	'accstatus'=>'1',
 	        	);
 			$result=$this->Login_model->RegSave($data);
 			if ($result) {
@@ -143,46 +144,51 @@ class Welcome extends CI_Controller {
 		//Login Check
     	$this->is_logged_in();
 
-		date_default_timezone_set('Asia/Dhaka');
-		$invoice_number=$this->invoice_generator->generateInvoiceNumber();
-		
-		$data['invoice_number']=$invoice_number;
-		$data['customer_name']=$_POST['name'];
-		$data['customer_mobile']=$_POST['mobile'];
-		$data['movie_name']=$_POST['show_name'];
-		$data['show_time']=$_POST['show_time'];
-		$data['reserve_date']=date($_POST['show_date']);
-		$data['currentdate']=date('Y-m-d');
-		
-		foreach ($_POST['seatcheckbox'] as $seat) {
-		    switch (true) {
-		        case strpos($seat, 'VIP') !== false:
-		        	$id=3;
-			        $data['sitcategory']=$id;
-			        $data['seat_number']=$seat;
-			        $data['price']=$this->Login_model->getTicketPriceById($id);
-		          break;
-		        case strpos($seat, 'A') !== false:
-		        	$id=1;
-			        $data['sitcategory']=$id;
-			        $data['seat_number']=$seat;
-			        $data['price']=$this->Login_model->getTicketPriceById($id);
-		            break;
-		        default:
-		        	$id=2;
-			        $data['sitcategory']=$id;
-			        $data['seat_number']=$seat;
-			        $data['price']=$this->Login_model->getTicketPriceById($id);
-		            break;
-		    }
+    	// MAKE RESERVATION
+    	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-		    $this->db->insert('reservationrecord',$data);
+			date_default_timezone_set('Asia/Dhaka');
+			$invoice_number=$this->invoice_generator->generateInvoiceNumber();
+			
+			$data['invoice_number']=$invoice_number;
+			$data['customer_name']=$_POST['name'];
+			$data['customer_mobile']=$_POST['mobile'];
+			$data['movie_name']=$_POST['show_name'];
+			$data['show_time']=$_POST['show_time'];
+			$data['reserve_date']=date($_POST['show_date']);
+			$data['currentdate']=date('Y-m-d');
+			
+			foreach ($_POST['seatcheckbox'] as $seat) {
+			    switch (true) {
+			        case strpos($seat, 'VIP') !== false:
+			        	$id=3;
+				        $data['sitcategory']=$id;
+				        $data['seat_number']=$seat;
+				        $data['price']=$this->Login_model->getTicketPriceById($id);
+			          break;
+			        case strpos($seat, 'A') !== false:
+			        	$id=1;
+				        $data['sitcategory']=$id;
+				        $data['seat_number']=$seat;
+				        $data['price']=$this->Login_model->getTicketPriceById($id);
+			            break;
+			        default:
+			        	$id=2;
+				        $data['sitcategory']=$id;
+				        $data['seat_number']=$seat;
+				        $data['price']=$this->Login_model->getTicketPriceById($id);
+			            break;
+			    }
 
+			    $this->db->insert('reservationrecord',$data);
+
+			}
+
+			$invoice['invoice_record']=$this->Login_model->GetInfoByInvoice($invoice_number);
+			$this->load->view('invoice',$invoice);
+		}else{
+			redirect(base_url('index.php/login')); 
 		}
-
-		$invoice['invoice_record']=$this->Login_model->GetInfoByInvoice($invoice_number);
-		$this->load->view('invoice',$invoice);
-
 	}	
 
 	public function reprint($invoice_number){

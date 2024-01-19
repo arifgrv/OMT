@@ -53,7 +53,7 @@
 <body>
 
     <div class="container">
-        <div style="text-align: center;">
+        <div class="mb-5" style="text-align: center;">
             <img class="rounded-image" src="<?php echo base_url('Assets/grv-transprent-logo.png'); ?>" width="100" height="100">
             <h3><u>GRV Cineplex Sales Report</u></h3>
         </div>

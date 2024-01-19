@@ -59,7 +59,7 @@ class Login_model extends CI_Model {
     {
         // Check if data in array exists in the 'reservation' table for the specified parameters
         $this->db->select('seat_number');
-        $this->db->from('reservation');
+        $this->db->from('reservationrecord');
         $this->db->where_in('seat_number', $sitNumbers);
         $this->db->where('reserve_date', $reserveDate);
         $this->db->where('show_time', $showtime);

@@ -119,6 +119,16 @@ class Welcome extends CI_Controller {
         $this->load->view('ticket_Search', $data);
     }
 
+	public function D_ticket_Search()
+    {
+    	//Login Check
+    	$this->is_logged_in();
+
+        $data['moviename']=$this->Login_model->moviename();
+        $data['showtime']=$this->Login_model->showtime();
+        $this->load->view('D_ticket_Search', $data);
+    }
+
     public function TicketBookingService()
     {
 
@@ -148,7 +158,37 @@ class Welcome extends CI_Controller {
 	    	redirect(base_url('index.php/BookTicket')); 
 	    }
     }
-	
+
+    public function DisCountTicketBookingService()
+    {
+
+    	//Login Check
+    	$this->is_logged_in();
+    	
+    	// viw sit plan 
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	        $MV_Name = $this->input->post('show_name');
+	        $Show_date = date('Y-m-d', strtotime($this->input->post('show_date')));
+	        $showtime = $this->input->post('show_time');
+
+	        // Set the timezone to Asian/Dhaka
+	        date_default_timezone_set('Asia/Dhaka');
+
+	        $data = array(
+	            'current_date' => date('Y-m-d'),
+	            'Movie_Name' => $this->Login_model->movie_name($MV_Name),
+	            'show_time' => $this->Login_model->show_time($showtime),
+	            'Show_date' => $Show_date,
+	            'MV_ID' => $MV_Name,
+	            'Show_ID' => $showtime,
+	        );
+
+	         $this->load->view('discountsit', $data);
+	    }else{
+	    	redirect(base_url('index.php/BookTicket')); 
+	    }
+    }	
+    
 	public function makeResurve(){
 
 		//Login Check
@@ -199,7 +239,37 @@ class Welcome extends CI_Controller {
 		}else{
 			redirect(base_url('index.php/login')); 
 		}
-	}	
+	}
+
+	public function DiscountMakeResurve(){
+
+		//Login Check
+    	$this->is_logged_in();
+
+    	// MAKE RESERVATION
+    	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+			date_default_timezone_set('Asia/Dhaka');
+			$invoice_number=$this->invoice_generator->generateInvoiceNumber();
+			$selectedSeats = $_POST['seatcheckbox'];
+			$data['invoice_number']=$invoice_number;
+			$data['customer_name']=$_POST['name'].'['.$_POST['discount_ref'].']';
+			$data['customer_mobile']=$_POST['mobile'];
+			$data['movie_name']=$_POST['show_name'];
+			$data['show_time']=$_POST['show_time'];
+			$data['reserve_date']=date($_POST['show_date']);
+			$data['currentdate']=date('Y-m-d');
+			$data['seat_number']=implode(", ", $selectedSeats);
+			$data['totalbill']=date($_POST['show_date']);
+			
+
+
+			$invoice['invoice_record']=$this->Login_model->GetInfoByInvoice($invoice_number);
+			$this->load->view('invoice',$invoice);
+		}else{
+			redirect(base_url('index.php/login')); 
+		}
+	}
 
 	public function reprint($invoice_number){
 		//Login Check

@@ -52,8 +52,9 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><a href="#">Home</a></li>
                     <li class="list-group-item"><a href="<?php echo base_url('index.php/BookTicket'); ?>" target="_blank">Book Sit</a></li>
+                    <li class="list-group-item"><a href="<?php echo base_url('index.php/Discount'); ?>" target="_blank">Discount Offer</a></li>
                     <li class="list-group-item"><a href="<?php echo base_url('index.php/reprint/211'); ?>"  target="_blank">Reprint</a></li>
-                    <li class="list-group-item"><a href="<?php echo base_url('index.php/accountsreport'); ?>">Accounts</a></li>
+                    <li class="list-group-item"><a href="<?php echo base_url('index.php/accountsreport'); ?>"  target="_blank">Accounts</a></li>
                     <li class="list-group-item"><a href="#">Change Password</a></li>
                     <li class="list-group-item"><a href="<?php echo base_url('index.php/logout'); ?>">Logout</a></li>
                 </ul>

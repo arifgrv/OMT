@@ -163,7 +163,7 @@
                         <div class="row">
                             <input type="hidden" name="totalbill" id="total_cost">
                             <div class="col-md-6">Received Amount : BDT <input type="text" name="discount_amount" id="discount_amount"> Tk.</div>
-                            <div class="col-md-6">Discount Voucher Code : <input type="text" name="discount_ref" id="discount_ref" placeholder="salar po"></div>
+                            <div class="col-md-6">Discount Voucher Code : <input type="text" name="discount_ref" id="discount_ref"></div>
                         </div>
                         <button type="submit" class="btn btn-success mt-3 btn-lg">Reserve</button>
                     </div>

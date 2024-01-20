@@ -159,8 +159,9 @@
                             </div>
                         </div>
                         <br>
-                        <h5 id="total_cost"></h5>
+                        <h5 id="total_cost_show"></h5>
                         <div class="row">
+                            <input type="hidden" name="totalbill" id="total_cost">
                             <div class="col-md-6">Received Amount : BDT <input type="text" name="discount_amount" id="discount_amount"> Tk.</div>
                             <div class="col-md-6">Discount Voucher Code : <input type="text" name="discount_ref" id="discount_ref" placeholder="salar po"></div>
                         </div>
@@ -205,7 +206,8 @@
         });
 
         // Display the total cost
-        document.getElementById('total_cost').innerText = 'Total Amount : BTD - ' + totalCost + 'Tk.';
+        document.getElementById('total_cost_show').innerText = 'Total Amount : BTD - ' + totalCost + 'Tk.';
+         document.getElementById('total_cost').value = totalCost;
     }
 
     // Attach the calculateTotal function to the change event of seat checkboxes

@@ -96,6 +96,17 @@ class Login_model extends CI_Model {
         }
     }
 
+    public function GetInfoByDiscountInvoice($id) {
+        $this->db->select('*');
+        $query = $this->db->get_where('discountreservationrecord', array('invoice_number' => $id));
+
+        if ($query->num_rows() > 0) {
+            return $query->result(); // Return all columns for the matching row
+        } else {
+            return null; // or any default value you prefer
+        }
+    }
+
     public function Accounts_data_FromTO($fromDate, $toDate) {
         $this->db->where('reserve_date >=', $fromDate);
         $this->db->where('reserve_date <=', $toDate);

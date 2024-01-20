@@ -253,19 +253,21 @@ class Welcome extends CI_Controller {
 			$invoice_number=$this->invoice_generator->generateInvoiceNumber();
 			$selectedSeats = $_POST['seatcheckbox'];
 			$data['invoice_number']=$invoice_number;
-			$data['customer_name']=$_POST['name'].'['.$_POST['discount_ref'].']';
+			$data['customer_name']=$_POST['name'];
 			$data['customer_mobile']=$_POST['mobile'];
 			$data['movie_name']=$_POST['show_name'];
 			$data['show_time']=$_POST['show_time'];
 			$data['reserve_date']=date($_POST['show_date']);
 			$data['currentdate']=date('Y-m-d');
 			$data['seat_number']=implode(", ", $selectedSeats);
-			$data['totalbill']=date($_POST['show_date']);
+			$data['totalbill']=$_POST['totalbill'];
+			$data['received']=$_POST['discount_amount'];
+			$data['refarence']=$_POST['discount_ref'];
 			
+			$this->db->insert('discountreservationrecord',$data);
 
-
-			$invoice['invoice_record']=$this->Login_model->GetInfoByInvoice($invoice_number);
-			$this->load->view('invoice',$invoice);
+			$invoice['invoice_record']=$this->Login_model->GetInfoByDiscountInvoice($invoice_number);
+			$this->load->view('discountinvoice',$invoice);
 		}else{
 			redirect(base_url('index.php/login')); 
 		}

@@ -18,6 +18,14 @@ class Welcome extends CI_Controller {
 		$this->load->view('homepage', $data);
 	}
 
+	public function admindashboard(){
+		$this->load->view('admin/admin_dashboard');
+	}
+
+	public function userdashboard(){
+		$this->load->view('admin/user_dashboard');
+	}
+
 	public function login()
 	{
 		$this->load->view('Login');

@@ -10,6 +10,9 @@ $route['translate_uri_dashes'] = FALSE;
 $route['accountsreport'] = 'Welcome/AccountsReport';
 
 $route['home'] = 'Welcome/index';
+$route['admin'] = 'Welcome/admindashboard';
+$route['user'] = 'Welcome/userdashboard';
+
 $route['newUser'] = 'Welcome/newUser';
 $route['login'] = 'Welcome/login';
 $route['logout'] = 'Welcome/logout';

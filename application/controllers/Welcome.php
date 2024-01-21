@@ -58,7 +58,7 @@ class Welcome extends CI_Controller {
 				//Show Dashboard
 				switch ($result['acctype']) {
 					case '1':
-						$this->load->view('admin_dashboard');
+						$this->load->view('admin/admin_dashboard');
 						break;
 					
 					default:

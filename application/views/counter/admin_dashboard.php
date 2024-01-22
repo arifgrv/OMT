@@ -13,7 +13,7 @@
     <section class="section dashboard">
       <div class="row">
         <?php include 'submain/lsc.php';?>
-        <?php include 'submain/rsc.php';?>
+        <?php // include 'submain/rsc.php';?>
       </div>
     </section>
 

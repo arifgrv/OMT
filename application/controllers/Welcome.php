@@ -46,7 +46,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('sit');
 	}
 
-
 	public function newUser()
 	{
 		$this->load->view('Registration');

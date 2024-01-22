@@ -19,11 +19,11 @@ class Welcome extends CI_Controller {
 	}
 
 	public function admindashboard(){
-		$this->load->view('admin/admin_dashboard');
+		$this->load->view('counter/admin_dashboard');
 	}
 
 	public function userdashboard(){
-		$this->load->view('admin/user_dashboard');
+		$this->load->view('counter/user_dashboard');
 	}
 
 	public function login()
@@ -66,7 +66,7 @@ class Welcome extends CI_Controller {
 				//Show Dashboard
 				switch ($result['acctype']) {
 					case '1':
-						$this->load->view('admin/admin_dashboard');
+						$this->load->view('counter/admin_dashboard');
 						break;
 					
 					default:

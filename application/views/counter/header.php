@@ -2,7 +2,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="<?php echo base_url('admin'); ?>" class="logo d-flex align-items-center">
+      <a href="<?php echo base_url('counter'); ?>" class="logo d-flex align-items-center">
         <img class="rounded-image" src="<?php echo base_url(); ?>Assets/grv-transprent-logo.png" alt="">
         <span class="d-none d-lg-block">GRV Cineplex</span>
       </a>

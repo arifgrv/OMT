@@ -19,6 +19,10 @@ class Welcome extends CI_Controller {
 	}
 
 	public function admindashboard(){
+		$this->load->view('admin/admin_dashboard');
+	}
+
+	public function counterdashboard(){
 		$this->load->view('counter/admin_dashboard');
 	}
 

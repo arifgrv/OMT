@@ -11,6 +11,7 @@ $route['accountsreport'] = 'Welcome/AccountsReport';
 
 $route['home'] = 'Welcome/index';
 $route['admin'] = 'Welcome/admindashboard';
+$route['counter'] = 'Welcome/counterdashboard';
 $route['user'] = 'Welcome/userdashboard';
 
 $route['newUser'] = 'Welcome/newUser';

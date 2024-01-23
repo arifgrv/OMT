@@ -7,11 +7,16 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'sql307.ezyro.com',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'cineplex',
+	'dbdriver' => 'mysqli',
+	/*'hostname' => 'sql307.ezyro.com',
 	'username' => 'ezyro_35778514',
 	'password' => '569fadcccb6',
 	'database' => 'ezyro_35778514_cineplex',
-	'dbdriver' => 'mysqli',
+	'dbdriver' => 'mysqli',*/
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

@@ -34,6 +34,7 @@ class Counter_model extends CI_Model {
         $this->db->select('*'); 
         $this->db->from('reservationrecord');
         $this->db->group_by('invoice_number');
+        $this->db->order_by('invoice_number', 'DESC');
         $query = $this->db->get()->result_array(); 
         return $query;
     }
@@ -42,6 +43,7 @@ class Counter_model extends CI_Model {
         $this->db->select('*'); 
         $this->db->from('discountreservationrecord');
         $this->db->group_by('invoice_number');
+        $this->db->order_by('invoice_number', 'DESC');
         $query = $this->db->get()->result_array(); 
         return $query;
     }

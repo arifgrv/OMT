@@ -302,6 +302,14 @@ class Welcome extends CI_Controller {
 		$this->load->view('invoice',$invoice);
 	}
 
+	public function dreprint($invoice_number){
+		//Login Check
+    	$this->is_logged_in();
+
+		$invoice['invoice_record']=$this->Login_model->GetInfoByDiscountInvoice($invoice_number);
+		$this->load->view('discountinvoice',$invoice);
+	}
+
 	public function AccountsReport()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -318,5 +326,25 @@ class Welcome extends CI_Controller {
             $this->load->view('accounts',$data);
         }
     }
+
+
+	public function AccountsDReport()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+            $fromDate=date($_POST['Date_From']);
+            $toDate=date($_POST['Date_TO']);
+            $data['accReport']=$this->Login_model->DAccounts_data_FromTO($fromDate, $toDate);
+            $this->load->view('daccounts',$data);
+        }else{
+        	date_default_timezone_set('Asia/Dhaka');
+            $fromDate=date('Y-m-d');
+            $toDate=date('Y-m-d');
+            $data['accReport']=$this->Login_model->DAccounts_data_FromTO($fromDate, $toDate);
+            $this->load->view('daccounts',$data);
+        }
+    }
+
+
 
 }

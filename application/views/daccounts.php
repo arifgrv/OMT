@@ -58,7 +58,7 @@
             <h3><u>GRV Cineplex Sales Report</u></h3>
         </div>
 
-        <form action="<?php echo base_url("index.php/accountsreport"); ?>" method="POST">
+        <form action="<?php echo base_url("index.php/AccountsDReport"); ?>" method="POST">
             <div class="row bg-light p-3">
                 <div class="col-md-4">
                     <label for="Date_From">From:</label>
@@ -100,11 +100,11 @@
                         <td><?php echo $row['customer_mobile']; ?></td>
                         <td><?php echo $row['reserve_date'] . ' - ' . $row['movie_name'] . ' - ' . $row['show_time']; ?></td>
                         <td><?php echo $row['seat_number']; ?></td>
-                        <td><?php echo $row['price']; ?></td>
+                        <td><?php echo $row['totalbill']; ?></td>
                     </tr>
                     <?php
                     $TotalSit = ($TotalSit + 1);
-                    $TotalCollection = $TotalCollection + $row['price'];
+                    $TotalCollection = $TotalCollection + $row['totalbill'];
                 }; ?>
 
                 <!-- Sales data will be dynamically loaded here -->

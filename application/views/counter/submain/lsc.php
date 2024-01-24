@@ -27,7 +27,13 @@
                       <i class="bi bi-cart"></i>
                     </div>
                     <div class="ps-3">
-                      <h6><?php echo (number_format(($TGS['total_sales']+$TDS['total_discount_sales']), 2, '.', ',')) ; ?></h6>
+                      <h6><?php 
+                        if (!is_null($TGS['total_sales'])) {
+                          echo (number_format(($TGS['total_sales']+$TDS['total_discount_sales']), 2, '.', ',')) ;
+                        }else{
+                          echo '00.00';
+                        };
+                      ?></h6>
                       <span class="text-success small pt-1 fw-bold">BDT</span> <span class="text-muted small pt-2 ps-1"></span>
 
                     </div>
@@ -63,7 +69,15 @@
                       <i class="bi bi-currency-dollar"></i>
                     </div>
                     <div class="ps-3">
-                      <h6><?php print_r(number_format($TGSales['total_sales'], 2, '.', ',')); ?></h6>
+                      <h6>
+                        <?php 
+                          if (!is_null($TGSales['total_sales'])) {
+                            print_r(number_format($TGSales['total_sales'], 2, '.', ','));
+                          }else{
+                            echo '00.00';
+                          };
+                        ?>
+                      </h6>
                       <span class="text-success small pt-1 fw-bold">BDT</span> 
                       <span class="text-muted small pt-2 ps-1"></span>
                     </div>
@@ -99,7 +113,13 @@
                       <i class="bi bi-nvme"></i>
                     </div>
                     <div class="ps-3">
-                      <h6><?php print_r(number_format($TDSales['total_discount_sales'], 2, '.', ',')) ; ?></h6>
+                      <h6><?php 
+                        if (!is_null($TDSales['total_discount_sales'])) {
+                          print_r(number_format($TDSales['total_discount_sales'], 2, '.', ',')) ;
+                        }else{
+                          echo '00.00';
+                        };
+                       ?></h6>
                       <span class="text-success small pt-1 fw-bold">BDT</span> <span class="text-muted small pt-2 ps-1"></span>
 
                     </div>

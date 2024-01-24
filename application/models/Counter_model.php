@@ -1,19 +1,20 @@
 <?php
 class Counter_model extends CI_Model {
 
-	public function TodaysOnlineSales(){
+	public function TodaysOnlineSales($today){
 		$this->db->select('*');
         $this->db->from('reservationrecord');
-        $this->db->where('reserve_date', $reserveDate);
-
-        $query  = $this->db->get()->row_array();
-        if ($query->num_rows() > 0) {
-            return $query->num_rows();
-        } else {
-            return null; 
-        }
+        $this->db->where('reserve_date', $today);
+        $query  = $this->db->get()->result_array();
+        return count($query); 
 	}
-
+    public function TodaysDiscountSales($today){
+        $this->db->select('*');
+        $this->db->from('discountreservationrecord');
+        $this->db->where('reserve_date', $today);
+        $query  = $this->db->get()->result_array();
+        return count($query); 
+    }
 
 }
 ?>

@@ -6,10 +6,12 @@ class Welcome extends CI_Controller {
 	public function __construct() {
         parent::__construct();
         $this->load->model('Login_model');
+        $this->load->model('Counter_model');
         $this->load->library('form_validation');
         $this->load->library('seat_reservation');
         $this->load->library('invoice_generator');
         $this->load->library('session');
+	    date_default_timezone_set('Asia/Dhaka');
     }
 
 	public function index()
@@ -23,7 +25,9 @@ class Welcome extends CI_Controller {
 	}
 
 	public function counterdashboard(){
-		$this->load->view('counter/admin_dashboard');
+		$today=date('Y-m-d');
+        $data['TodaysOnlineSales']=$this->Counter_model->TodaysOnlineSales($today);
+		$this->load->view('counter/admin_dashboard',$data);
 	}
 
 	public function userdashboard(){
@@ -69,7 +73,10 @@ class Welcome extends CI_Controller {
 				//Show Dashboard
 				switch ($result['acctype']) {
 					case '1':
-						$this->load->view('counter/admin_dashboard');
+						$today=date('Y-m-d');
+        				$data['TodaysOnlineSales']=$this->Counter_model->TodaysOnlineSales($today);
+        				$data['TodaysDiscountSales']=$this->Counter_model->TodaysDiscountSales($today);
+						$this->load->view('counter/admin_dashboard',$data);
 						break;
 					
 					default:

@@ -27,6 +27,8 @@ class Welcome extends CI_Controller {
 	public function counterdashboard(){
 		$today=date('Y-m-d');
         $data['TodaysOnlineSales']=$this->Counter_model->TodaysOnlineSales($today);
+        $data['GSales']=$this->Counter_model->GSales();
+        $data['DSales']=$this->Counter_model->DSales();
 		$this->load->view('counter/admin_dashboard',$data);
 	}
 

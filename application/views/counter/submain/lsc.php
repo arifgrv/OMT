@@ -125,12 +125,13 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+                  <h5 class="card-title">General  Sales <span>Info</span></h5>
 
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
                         <th scope="col">INV#</th>
+                        <th scope="col">customer_name</th>
                         <th scope="col">Booking Date</th>
                         <th scope="col">Show Information</th>
                         <th scope="col">Seat Numbers</th>
@@ -138,6 +139,15 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <?php foreach ($GSales as $key => $value): ?>
+                      <tr>
+                        <th scope="row"><a href="<?php echo base_url('index.php/reprint/'.$value['invoice_number']);?>">$value['invoice_number']</a></th>
+                        <td><?php echo $value['customer_name']; ?></td>
+                        <td><a href="#" class="text-primary">2024-01-22 - HUBBA - 07:00 PM</a></td>
+                        <td>C4</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>  
+                      <?php endforeach ?>
                       <tr>
                         <th scope="row"><a href="#">148</a></th>
                         <td>2024-01-22</td>

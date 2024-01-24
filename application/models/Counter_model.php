@@ -1,33 +1,52 @@
 <?php
 class Counter_model extends CI_Model {
 
-	public function TodaysOnlineSales($today){
-		$this->db->select('*');
+	public function TGS($today){
+		$this->db->select_sum('price', 'total_sales'); 
         $this->db->from('reservationrecord');
         $this->db->where('reserve_date', $today);
-        $query  = $this->db->get()->result_array();
-        return count($query); 
+        $query = $this->db->get()->row_array(); 
+        return $query;
 	}
-    public function TodaysDiscountSales($today){
-        $this->db->select('*');
+    public function TDS($today){
+        $this->db->select_sum('received', 'total_discount_sales'); 
         $this->db->from('discountreservationrecord');
         $this->db->where('reserve_date', $today);
-        $query  = $this->db->get()->result_array();
-        return count($query); 
+        $query = $this->db->get()->row_array(); 
+        return $query;
     }
 
-    public function GSales(){
-        $this->db->select('*');
+    public function TGSales(){
+        $this->db->select_sum('price', 'total_sales'); 
         $this->db->from('reservationrecord');
-        $query  = $this->db->get()->result_array();
-        return $query; 
+        $query = $this->db->get()->row_array(); 
+        return $query;
     }
-    public function DSales(){
-        $this->db->select('*');
+    
+    public function TDSales(){
+        $this->db->select_sum('received', 'total_discount_sales'); 
         $this->db->from('discountreservationrecord');
-        $query  = $this->db->get()->result_array();
-        return $query; 
-    }    
+        $query = $this->db->get()->row_array();
+        return $query;
+    }
+ 
+    public function GSales(){
+        $this->db->select('*'); 
+        $this->db->from('reservationrecord');
+        $this->db->group_by('invoice_number');
+        $query = $this->db->get()->result_array(); 
+        return $query;
+    }
+    
+    public function DSales(){
+        $this->db->select('*'); 
+        $this->db->from('discountreservationrecord');
+        $this->db->group_by('invoice_number');
+        $query = $this->db->get()->result_array(); 
+        return $query;
+    }
+
+
 
 }
 ?>

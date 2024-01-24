@@ -26,9 +26,13 @@ class Welcome extends CI_Controller {
 
 	public function counterdashboard(){
 		$today=date('Y-m-d');
-        $data['TodaysOnlineSales']=$this->Counter_model->TodaysOnlineSales($today);
+        $data['TGS']=$this->Counter_model->TGS($today);
+        $data['TDS']=$this->Counter_model->TDS($today);
+        $data['TGSales']=$this->Counter_model->TGSales();
+        $data['TDSales']=$this->Counter_model->TDSales();
         $data['GSales']=$this->Counter_model->GSales();
         $data['DSales']=$this->Counter_model->DSales();
+        
 		$this->load->view('counter/admin_dashboard',$data);
 	}
 
@@ -75,10 +79,7 @@ class Welcome extends CI_Controller {
 				//Show Dashboard
 				switch ($result['acctype']) {
 					case '1':
-						$today=date('Y-m-d');
-        				$data['TodaysOnlineSales']=$this->Counter_model->TodaysOnlineSales($today);
-        				$data['TodaysDiscountSales']=$this->Counter_model->TodaysDiscountSales($today);
-						$this->load->view('counter/admin_dashboard',$data);
+						$this->counterdashboard();
 						break;
 					
 					default:

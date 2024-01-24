@@ -27,7 +27,7 @@
                       <i class="bi bi-cart"></i>
                     </div>
                     <div class="ps-3">
-                      <h6><?php print_r(number_format(($TodaysOnlineSales+$TodaysDiscountSales), 2, '.', ',')) ; ?></h6>
+                      <h6><?php echo (number_format(($TGS['total_sales']+$TDS['total_discount_sales']), 2, '.', ',')) ; ?></h6>
                       <span class="text-success small pt-1 fw-bold">BDT</span> <span class="text-muted small pt-2 ps-1"></span>
 
                     </div>
@@ -55,14 +55,14 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">General Sales <span>| Today</span></h5>
+                  <h5 class="card-title">General Sales <span>| Grand Total</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-currency-dollar"></i>
                     </div>
                     <div class="ps-3">
-                      <h6><?php print_r(number_format($TodaysOnlineSales, 2, '.', ',')); ?></h6>
+                      <h6><?php print_r(number_format($TGSales['total_sales'], 2, '.', ',')); ?></h6>
                       <span class="text-success small pt-1 fw-bold">BDT</span> <span class="text-muted small pt-2 ps-1"></span>
 
                     </div>
@@ -90,14 +90,14 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Dincount Sales <span>| Today</span></h5>
+                  <h5 class="card-title">Dincount Sales <span>| Grand Total</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-nvme"></i>
                     </div>
                     <div class="ps-3">
-                      <h6><?php print_r(number_format($TodaysDiscountSales, 2, '.', ',')) ; ?></h6>
+                      <h6><?php print_r(number_format($TDSales['total_discount_sales'], 2, '.', ',')) ; ?></h6>
                       <span class="text-success small pt-1 fw-bold">BDT</span> <span class="text-muted small pt-2 ps-1"></span>
 
                     </div>
@@ -139,6 +139,11 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <?php 
+                        echo "<pre>";
+                        print_r($GSales) ;
+                        echo "</pre>";
+                      ?>
                       <?php foreach ($GSales as $key => $value): ?>
                       <tr>
                         <th scope="row"><a href="<?php echo base_url('index.php/reprint/'.$value['invoice_number']);?>">$value['invoice_number']</a></th>

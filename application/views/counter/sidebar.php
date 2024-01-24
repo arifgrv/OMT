@@ -4,7 +4,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="#">
+        <a class="nav-link " href="<?php echo base_url('index.php/counter'); ?>">
           <i class="bi bi-grid"></i>
           <span>Counter Dashboard</span>
         </a>

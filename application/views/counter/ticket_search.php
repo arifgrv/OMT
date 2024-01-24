@@ -45,7 +45,7 @@
                                         <!-- Add more options as needed -->
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Book Now</button>
+                                <button type="submit" class="btn btn-primary mt-3">Book Now</button>
                             </form>
                         </div>
                     </div>

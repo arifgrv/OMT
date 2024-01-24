@@ -59,7 +59,7 @@
                                             <div class="col">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        VIP Galary 1: BDT-700Tk.
+                                                        VIP Lounge: BDT-700Tk.
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="row">
@@ -80,7 +80,7 @@
                                             <div class="col">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        VIP Galary 2: BDT-700Tk.
+                                                        VIP Lounge: BDT-700Tk.
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="row">

@@ -107,7 +107,7 @@
 
                 <div class="card-body">
                   <a href="<?php echo base_url('index.php/AccountsDReport') ;?>" target="_blank">
-                  <h5 class="card-title">Dincount Sales <span>| Grand Total</span></h5>
+                  <h5 class="card-title">Discount Sales <span>| Today</span></h5>
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-nvme"></i>
@@ -172,23 +172,19 @@
                       <?php endforeach ?>
                     </tbody>
                   </table>
-
                 </div>
-
               </div>
             </div><!-- End Recent Sales -->
 
             <!-- Recent Sales -->
             <div class="col-12">
               <div class="card recent-sales overflow-auto">
-
                 <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
                       <h6>Filter</h6>
                     </li>
-
                     <li><a class="dropdown-item" href="#">Today</a></li>
                     <li><a class="dropdown-item" href="#">This Month</a></li>
                     <li><a class="dropdown-item" href="#">This Year</a></li>
@@ -197,7 +193,6 @@
 
                 <div class="card-body">
                   <h5 class="card-title">Discount  Sales <span>Info</span></h5>
-
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
@@ -220,9 +215,7 @@
                       <?php endforeach ?>
                     </tbody>
                   </table>
-
                 </div>
-
               </div>
             </div><!-- End Recent Sales -->
 

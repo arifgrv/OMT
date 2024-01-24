@@ -137,7 +137,8 @@ class Welcome extends CI_Controller {
 
         $data['moviename']=$this->Login_model->moviename();
         $data['showtime']=$this->Login_model->showtime();
-        $this->load->view('ticket_Search', $data);
+        //$this->load->view('ticket_Search', $data);
+        $this->load->view('counter/ticket_search', $data);
     }
 
 	public function D_ticket_Search()
@@ -174,7 +175,8 @@ class Welcome extends CI_Controller {
 	            'Show_ID' => $showtime,
 	        );
 
-	         $this->load->view('sit', $data);
+	         //$this->load->view('sit', $data);
+	         $this->load->view('counter/sitplan', $data);
 	    }else{
 	    	redirect(base_url('index.php/BookTicket')); 
 	    }

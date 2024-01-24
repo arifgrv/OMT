@@ -26,6 +26,9 @@
   <link href="<?php echo base_url(); ?>Assets/admin/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>Assets/admin/vendor/simple-datatables/style.css" rel="stylesheet">
 
+  <!-- sitplan auto calculation -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url(); ?>Assets/admin/css/style.css" rel="stylesheet">
 

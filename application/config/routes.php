@@ -16,16 +16,19 @@ $route['counter'] = 'Welcome/counterdashboard';
 $route['user'] = 'Welcome/userdashboard';
 
 $route['newUser'] = 'Welcome/newUser';
+$route['RegSave'] = 'Welcome/RegSave';
 $route['login'] = 'Welcome/login';
+$route['LgoCheck'] = 'Welcome/LgoCheck';
 $route['logout'] = 'Welcome/logout';
 
-$route['LgoCheck'] = 'Welcome/LgoCheck';
-$route['RegSave'] = 'Welcome/RegSave';
 $route['BookTicket'] = 'Welcome/ticket_Search';
 $route['Discount'] = 'Welcome/D_ticket_Search';
+
 $route['SitPlan'] = 'Welcome/TicketBookingService';
 $route['DiscountSitPlan'] = 'Welcome/DisCountTicketBookingService';
+
 $route['makeResurve'] = 'Welcome/makeResurve';
 $route['DiscountMakeResurve'] = 'Welcome/DiscountMakeResurve';
+
 $route['reprint/(:any)'] = 'Welcome/reprint/$1';
 $route['dreprint/(:any)'] = 'Welcome/dreprint/$1';

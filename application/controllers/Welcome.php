@@ -37,7 +37,8 @@ class Welcome extends CI_Controller {
 	}
 
 	public function userdashboard(){
-		$this->load->view('counter/user_dashboard');
+		$data['homepage']=$this->Login_model->homepage();
+		$this->load->view('user/admin_dashboard',$data);
 	}
 
 	public function login()
@@ -74,7 +75,9 @@ class Welcome extends CI_Controller {
 			
 			if (!empty($result)) {
 				//Set Session Data
-				$this->session->set_userdata('user_email',$_POST['email']);
+				$this->session->set_userdata('user_email',$result['email']);
+				$this->session->set_userdata('user_name',$result['username']);
+				$this->session->set_userdata('user_mobile',$result['mobile']);
 
 				//Show Dashboard
 				switch ($result['acctype']) {
@@ -83,7 +86,7 @@ class Welcome extends CI_Controller {
 						break;
 					
 					default:
-						$this->load->view('user_dashboard');
+						$this->userdashboard();
 						break;
 				}
 			}else{

@@ -48,6 +48,8 @@ class Welcome extends CI_Controller {
 
 	public function logout() {
         $this->session->unset_userdata('user_email');
+        $this->session->unset_userdata('user_name');
+        $this->session->unset_userdata('user_mobile');
         $this->session->sess_destroy();
         redirect(base_url('index.php/home')); 
     }
@@ -154,6 +156,17 @@ class Welcome extends CI_Controller {
         $this->load->view('counter/d_ticket_Search', $data);
     }
 
+    public function User_ticket_Search()
+    {
+    	//Login Check
+    	$this->is_logged_in();
+
+        $data['moviename']=$this->Login_model->moviename();
+        $data['showtime']=$this->Login_model->showtime();
+        //$this->load->view('ticket_Search', $data);
+        $this->load->view('user/ticket_search', $data);
+    }
+
     public function TicketBookingService()
     {
 
@@ -215,6 +228,37 @@ class Welcome extends CI_Controller {
 	    }
     }	
     
+    public function UserTicketBookingService()
+    {
+
+    	//Login Check
+    	$this->is_logged_in();
+    	
+    	// viw sit plan 
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	        $MV_Name = $this->input->post('show_name');
+	        $Show_date = date('Y-m-d', strtotime($this->input->post('show_date')));
+	        $showtime = $this->input->post('show_time');
+
+	        // Set the timezone to Asian/Dhaka
+	        date_default_timezone_set('Asia/Dhaka');
+
+	        $data = array(
+	            'current_date' => date('Y-m-d'),
+	            'Movie_Name' => $this->Login_model->movie_name($MV_Name),
+	            'show_time' => $this->Login_model->show_time($showtime),
+	            'Show_date' => $Show_date,
+	            'MV_ID' => $MV_Name,
+	            'Show_ID' => $showtime,
+	        );
+
+	         //$this->load->view('sit', $data);
+	         $this->load->view('user/sitplan', $data);
+	    }else{
+	    	redirect(base_url('index.php/UserBookTicket')); 
+	    }
+    }
+
 	public function makeResurve(){
 
 		//Login Check

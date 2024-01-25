@@ -25,11 +25,11 @@
                             <form action="<?php echo base_url("index.php/makeResurve"); ?>" method="POST">
                                 <div class="form-group">
                                     <label for="name">Name:</label>
-                                    <input type="text" class="form-control" id="name" name="name" required>
+                                    <input type="text" class="form-control" id="name" name="name" required value="<?php echo $this->session->userdata('user_name'); ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="mobile">Mobile Number:</label>
-                                    <input type="text" class="form-control" id="mobile" name="mobile" pattern="[0-9]{11}" required>
+                                    <input type="text" class="form-control" id="mobile" name="mobile" pattern="[0-9]{11}" required value="<?php echo $this->session->userdata('user_mobile'); ?>">
                                     <small class="form-text text-muted">Please enter a 11-digit mobile number.</small>
                                 </div>
                                 <?php echo form_hidden('show_name', $Movie_Name['MovieName']); ?>

@@ -22,7 +22,7 @@
                             <h4 class="mb-0">Movie Information</h4>
                         </div>
                         <div class="card-body">
-                            <form action="<?php echo base_url('index.php/SitPlan') ;?>" method="POST"> 
+                            <form action="<?php echo base_url('index.php/UserSitPlan') ;?>" method="POST"> 
                                 <div class="form-group">
                                     <label for="show_name">Show Name:</label>
                                     <select class="form-control" id="show_name" name="show_name" required>

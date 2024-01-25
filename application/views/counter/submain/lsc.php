@@ -20,6 +20,7 @@
                 </div>
 
                 <div class="card-body">
+                  <a href="<?php echo base_url('index.php/BookTicket'); ?>">
                   <h5 class="card-title">Total Sales <span>| Today</span></h5>
 
                   <div class="d-flex align-items-center">
@@ -38,6 +39,7 @@
 
                     </div>
                   </div>
+                  </a>
                 </div>
 
               </div>

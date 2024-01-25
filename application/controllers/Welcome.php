@@ -319,13 +319,13 @@ class Welcome extends CI_Controller {
             $fromDate=date($_POST['Date_From']);
             $toDate=date($_POST['Date_TO']);
             $data['accReport']=$this->Login_model->Accounts_data_FromTO($fromDate, $toDate);
-            $this->load->view('accounts',$data);
+            $this->load->view('counter/accounts',$data);
         }else{
         	date_default_timezone_set('Asia/Dhaka');
             $fromDate=date('Y-m-d');
             $toDate=date('Y-m-d');
             $data['accReport']=$this->Login_model->Accounts_data_FromTO($fromDate, $toDate);
-            $this->load->view('accounts',$data);
+            $this->load->view('counter/accounts',$data);
         }
     }
 
@@ -337,13 +337,13 @@ class Welcome extends CI_Controller {
             $fromDate=date($_POST['Date_From']);
             $toDate=date($_POST['Date_TO']);
             $data['accReport']=$this->Login_model->DAccounts_data_FromTO($fromDate, $toDate);
-            $this->load->view('daccounts',$data);
+            $this->load->view('counter/daccounts',$data);
         }else{
         	date_default_timezone_set('Asia/Dhaka');
             $fromDate=date('Y-m-d');
             $toDate=date('Y-m-d');
             $data['accReport']=$this->Login_model->DAccounts_data_FromTO($fromDate, $toDate);
-            $this->load->view('daccounts',$data);
+            $this->load->view('counter/daccounts',$data);
         }
     }
 

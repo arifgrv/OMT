@@ -168,8 +168,34 @@
                                 </div>
                             </div>
                             <br>
-                            <h5 id="total_cost_show"></h5>
+                            <h5 id="total_cost_show" class="mt-3 mb-5"></h5>
                             <div class="row">
+                                <div class="col-md-6">
+                                    <img src="<?php echo base_url('Assets/BkashPayment.jpeg') ;?> " width="400px" height="400px">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row p-5">
+                                        <p  style="text-align: justify;">Dear valued customer,<br/> We appreciate your continued support and loyalty to our services. We're excited to inform you about a special offer you have.</p>
+                                        <u>For Percentage Voucher</u>
+                                        <p><b>Paid Amount=Total Amount−(Total Amount×Discount Percentage/100)</b></p>
+                                        <u>For Cash Voucher</u>
+                                        <p><b>Paid Amount=Total Amount−Discount Cash Amount)</b></p>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="receivedAmount"><b>Paid Amount</b> as calculated by above formula:</label>
+                                            <input type="text" class="form-control" name="discount_amount" id="discount_amount" placeholder="Paid Amount" required>
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="discountVoucherCode">Voucher Code:</label>
+                                            <input type="text" class="form-control" name="discount_ref" id="discount_ref" placeholder="Voucher Code" required>
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="transID">BKash Trans ID:</label>
+                                            <input type="text" class="form-control" id="transID" placeholder="Enter Trans ID" required>
+                                        </div>
+                                    </div>
+                                </div>
                                 <input type="hidden" name="totalbill" id="total_cost">
                                 <div class="col-md-6">Received Amount : BDT <input type="text" name="discount_amount" id="discount_amount"> Tk.</div>
                                 <div class="col-md-6">Discount Voucher Code : <input type="text" name="discount_ref" id="discount_ref"></div>

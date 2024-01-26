@@ -11,6 +11,7 @@ class Welcome extends CI_Controller {
         $this->load->library('seat_reservation');
         $this->load->library('invoice_generator');
         $this->load->library('session');
+        $this->load->helper('spellnumber');
 	    date_default_timezone_set('Asia/Dhaka');
     }
 
@@ -372,7 +373,8 @@ class Welcome extends CI_Controller {
 			$data['seat_number']=implode(", ", $selectedSeats);
 			$data['totalbill']=$_POST['totalbill'];
 			$data['received']=$_POST['discount_amount'];
-			$data['refarence']=$_POST['discount_ref'];
+			$data['VoucherCode']=$_POST['discount_ref'];
+			$data['bKashTransID']=$_POST['transID'];
 			
 			$this->db->insert('discountreservationrecord',$data);
 

@@ -99,8 +99,12 @@
                     <td><?php echo $invoice_record[0]->reserve_date.' - '.$invoice_record[0]->movie_name.' - '.$invoice_record[0]->show_time; ?></td>
                 </tr>
                 <tr>
-                    <td>Discount Voucher Code: </td>
-                    <td><?php echo $invoice_record[0]->refarence ; ?></td>
+                    <td>Voucher Code: </td>
+                    <td><?php echo $invoice_record[0]->VoucherCode ; ?></td>
+                </tr>
+                <tr>
+                    <td>bKash Trans ID: </td>
+                    <td><?php echo $invoice_record[0]->bKashTransID ; ?></td>
                 </tr>
             </table>
         </div>
@@ -129,7 +133,7 @@
         </div>
         <div class="item total-amount">
             <div>After Discount Payable Amount: BDT <?php echo number_format($value->received, 2, '.', ','); ?> Tk.</div>
-        </div>
+        </div>       
         <hr>
         <p class="item">[with Includes all ADM + ACM + VAT + Movie Tax + Hall Tax]</p>
         <hr>

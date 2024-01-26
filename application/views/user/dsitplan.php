@@ -185,9 +185,10 @@
                                     <u>For Percentage Voucher</u>
                                     <p><b>Paid Amount=Total Amount−(Total Amount×Discount Percentage/100)</b></p>
                                     <u>For Cash Voucher</u>
-                                    <p><b>Paid Amount=Total Amount−Discount Cash Amount)</b></p>
+                                    <p><b>Paid Amount=Total Amount−Discount Cash Amount</b></p>
                                     <hr>
                                     <b><h3 id="total_cost_show"></h3></b>
+                                    <input type="hidden" name="totalbill" id="total_cost">
                                     <hr>
                                     <div class="col-md-12 mb-3">
                                         <label for="receivedAmount"><b>Paid Amount</b> as calculated by above formula:</label>
@@ -201,7 +202,7 @@
 
                                     <div class="col-md-6 mb-3">
                                         <label for="transID">bKash Trans ID:</label>
-                                            <input type="text" class="form-control" id="transID" placeholder="Enter Trans ID" required>
+                                            <input type="text" class="form-control" name="transID"  id="transID" placeholder="Enter Trans ID" required>
                                     </div>
                                 </div>
                             </div>

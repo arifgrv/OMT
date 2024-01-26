@@ -377,7 +377,7 @@ class Welcome extends CI_Controller {
 			$this->db->insert('discountreservationrecord',$data);
 
 			$invoice['invoice_record']=$this->Login_model->GetInfoByDiscountInvoice($invoice_number);
-			$this->load->view('discountinvoice',$invoice);
+			$this->load->view('user/discountinvoice',$invoice);
 		}else{
 			redirect(base_url('index.php/login')); 
 		}

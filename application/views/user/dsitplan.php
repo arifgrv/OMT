@@ -187,7 +187,7 @@
                                     <u>For Cash Voucher</u>
                                     <p><b>Paid Amount=Total Amount−Discount Cash Amount</b></p>
                                     <hr>
-                                    <b><h3 id="total_cost_show"></h3></b>
+                                    <b><h3 class="text-success" id="total_cost_show"></h3></b>
                                     <input type="hidden" name="totalbill" id="total_cost">
                                     <hr>
                                     <div class="col-md-12 mb-3">

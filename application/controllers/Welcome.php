@@ -9,7 +9,6 @@ class Welcome extends CI_Controller {
         $this->load->model('Counter_model');
         $this->load->library('form_validation');
         $this->load->library('seat_reservation');
-        $this->load->library('d_seat_reservation');
         $this->load->library('invoice_generator');
         $this->load->library('session');
 	    date_default_timezone_set('Asia/Dhaka');

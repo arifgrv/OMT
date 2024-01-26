@@ -21,6 +21,11 @@
                             <img class="rounded-image" src="<?php echo base_url('Assets/grv-transprent-logo.png'); ?>" width="100" height="100">
                             <h4 class="mb-0">Movie Information</h4>
                         </div>
+                        <?php 
+                            if (form_error('seatcheckbox[]')) {
+                                echo '<div class="alert alert-danger">' . form_error('seatcheckbox[]') . '</div>';
+                            };
+                        ?>
                         <div class="card-body">
                             <form action="<?php echo base_url('index.php/UserSitPlan') ;?>" method="POST"> 
                                 <div class="form-group">

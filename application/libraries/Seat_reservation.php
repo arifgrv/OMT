@@ -25,7 +25,7 @@ class Seat_reservation {
                              </p>';
             } else {
                 $output .= '<p class="card-text text-primary">
-                                 <input type="checkbox" name="seatcheckbox[]" id="' . $sitNumbers . '" value="' . $sitNumbers . '">
+                                 <input type="checkbox" name="seatcheckbox[]" id="' . $sitNumbers . '" value="' . $sitNumbers . '" >
                                  <i class="fa-solid fa-chair"></i>' . $sitNumbers . '
                              </p>';
             }

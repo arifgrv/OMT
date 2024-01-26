@@ -32,6 +32,7 @@ $route['UserSitPlan'] = 'Welcome/UserTicketBookingService';
 $route['UserDiscountSitPlan'] = 'Welcome/UserDisCountTicketBookingService';
 
 $route['makeResurve'] = 'Welcome/makeResurve';
+$route['UserMakeResurve'] = 'Welcome/UserMakeResurve';
 $route['DiscountMakeResurve'] = 'Welcome/DiscountMakeResurve';
 $route['UserDiscountMakeResurve'] = 'Welcome/UserDiscountMakeResurve';
 

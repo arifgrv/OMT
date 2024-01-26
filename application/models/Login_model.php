@@ -74,6 +74,25 @@ class Login_model extends CI_Model {
         }
     }
 
+    public function checkDReservations($sitNumbers, $reserveDate, $showtime, $movieName)
+    {
+        // Check if data in array exists in the 'reservation' table for the specified parameters
+        $this->db->select('seat_number');
+        $this->db->from('discountreservationrecord');
+        $this->db->where_in('seat_number', $sitNumbers);
+        $this->db->where('reserve_date', $reserveDate);
+        $this->db->where('show_time', $showtime);
+        $this->db->where('movie_name', $movieName);
+
+        $query  = $this->db->get()->row_array();
+
+        if ($query) {
+            return $query;
+        }else{
+            return null;
+        }
+    }
+
     public function getTicketPriceById($id) {
         $this->db->select('TicketPrice');
         $query = $this->db->get_where('sitcategory', array('id' => $id));

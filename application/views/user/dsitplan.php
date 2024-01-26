@@ -62,7 +62,7 @@
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="row">
-                                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '8', 'VIP'); ?>
+                                                                <?php echo $this->d_seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '8', 'VIP'); ?>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -83,7 +83,7 @@
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="row">
-                                                                <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '9', '15', 'VIP'); ?>
+                                                                <?php echo $this->d_seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '9', '15', 'VIP'); ?>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -102,13 +102,13 @@
                                                 <div class="card-body">
                                                     <!-- A -->
                                                     <div class="row">
-                                                        <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '4', 'A'); ?>
+                                                        <?php echo $this->d_seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '4', 'A'); ?>
                                                         <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '10', '13', 'A'); ?>
                                                     </div>
                                                     <hr>
                                                     <!-- B -->
                                                     <div class="row">
-                                                        <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'B'); ?>
+                                                        <?php echo $this->d_seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'B'); ?>
                                                     </div>
                                                     <hr>
                                                     <!-- C -->
@@ -118,32 +118,32 @@
                                                     <hr>
                                                     <!-- D -->
                                                     <div class="row">
-                                                        <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'D'); ?>
+                                                        <?php echo $this->d_seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'D'); ?>
                                                     </div>
                                                     <hr>
                                                     <!-- E -->
                                                     <div class="row">
-                                                        <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'E'); ?>
+                                                        <?php echo $this->d_seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'E'); ?>
                                                     </div>
                                                     <hr>
                                                     <!-- F -->
                                                     <div class="row">
-                                                        <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'F'); ?>
+                                                        <?php echo $this->d_seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'F'); ?>
                                                     </div>
                                                     <hr>
                                                     <!-- G -->
                                                     <div class="row">
-                                                        <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'G'); ?>
+                                                        <?php echo $this->d_seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'G'); ?>
                                                     </div>
                                                     <hr>
                                                     <!-- H -->
                                                     <div class="row">
-                                                        <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'H'); ?>
+                                                        <?php echo $this->d_seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'H'); ?>
                                                     </div>
                                                     <hr>
                                                     <!-- I -->
                                                     <div class="row">
-                                                        <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'I'); ?>
+                                                        <?php echo $this->d_seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'I'); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -159,7 +159,7 @@
                                                 <div class="card-body">
                                                     <!-- J -->
                                                     <div class="row">
-                                                        <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'J'); ?>
+                                                        <?php echo $this->d_seat_reservation->generateSeatCheckbox($Show_date, $show_time['ShowTime'], $Movie_Name['MovieName'], '1', '13', 'J'); ?>
                                                     </div>
                                                 </div>
                                             </div>

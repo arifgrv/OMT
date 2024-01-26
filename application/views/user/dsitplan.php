@@ -22,14 +22,14 @@
                             <h4 class="mb-0">Customer Information</h4>
                         </div>
                         <div class="card-body">
-                            <form action="<?php echo base_url("index.php/DiscountMakeResurve"); ?>" method="POST">
+                            <form action="<?php echo base_url("index.php/UserDiscountMakeResurve"); ?>" method="POST">
                                 <div class="form-group">
                                     <label for="name">Name:</label>
-                                    <input type="text" class="form-control" id="name" name="name" required>
+                                    <input type="text" class="form-control" id="name" name="name" value="<?php echo $this->session->userdata('user_name') ;?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="mobile">Mobile Number:</label>
-                                    <input type="text" class="form-control" id="mobile" name="mobile" pattern="[0-9]{11}" required>
+                                    <input type="text" class="form-control" id="mobile" name="mobile" pattern="[0-9]{11}" value="<?php echo $this->session->userdata('user_mobile') ;?>" required>
                                     <small class="form-text text-muted">Please enter a 11-digit mobile number.</small>
                                 </div>
                                 <?php echo form_hidden('show_name', $Movie_Name['MovieName']); ?>

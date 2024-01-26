@@ -29,9 +29,11 @@ $route['UserDiscount'] = 'Welcome/User_D_ticket_Search';
 $route['SitPlan'] = 'Welcome/TicketBookingService';
 $route['DiscountSitPlan'] = 'Welcome/DisCountTicketBookingService';
 $route['UserSitPlan'] = 'Welcome/UserTicketBookingService';
+$route['UserDiscountSitPlan'] = 'Welcome/UserDisCountTicketBookingService';
 
 $route['makeResurve'] = 'Welcome/makeResurve';
 $route['DiscountMakeResurve'] = 'Welcome/DiscountMakeResurve';
+$route['UserDiscountMakeResurve'] = 'Welcome/UserDiscountMakeResurve';
 
 $route['reprint/(:any)'] = 'Welcome/reprint/$1';
 $route['dreprint/(:any)'] = 'Welcome/dreprint/$1';

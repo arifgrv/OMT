@@ -208,6 +208,36 @@ class Welcome extends CI_Controller {
 	    }
     }
 
+    public function UserDisCountTicketBookingService()
+    {
+
+    	//Login Check
+    	$this->is_logged_in();
+    	
+    	// viw sit plan 
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	        $MV_Name = $this->input->post('show_name');
+	        $Show_date = date('Y-m-d', strtotime($this->input->post('show_date')));
+	        $showtime = $this->input->post('show_time');
+
+	        // Set the timezone to Asian/Dhaka
+	        date_default_timezone_set('Asia/Dhaka');
+
+	        $data = array(
+	            'current_date' => date('Y-m-d'),
+	            'Movie_Name' => $this->Login_model->movie_name($MV_Name),
+	            'show_time' => $this->Login_model->show_time($showtime),
+	            'Show_date' => $Show_date,
+	            'MV_ID' => $MV_Name,
+	            'Show_ID' => $showtime,
+	        );
+
+	         $this->load->view('user/dsitplan', $data);
+	    }else{
+	    	redirect(base_url('index.php/BookTicket')); 
+	    }
+    }
+
     public function DisCountTicketBookingService()
     {
 
@@ -321,7 +351,7 @@ class Welcome extends CI_Controller {
 		}
 	}
 
-	public function DiscountMakeResurve(){
+	public function UserDiscountMakeResurve(){
 
 		//Login Check
     	$this->is_logged_in();
@@ -353,6 +383,38 @@ class Welcome extends CI_Controller {
 		}
 	}
 
+	public function DiscountMakeResurve(){
+
+		//Login Check
+    	$this->is_logged_in();
+
+    	// MAKE RESERVATION
+    	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+			date_default_timezone_set('Asia/Dhaka');
+			$invoice_number=$this->invoice_generator->generateInvoiceNumber();
+			$selectedSeats = $_POST['seatcheckbox'];
+			$data['invoice_number']=$invoice_number;
+			$data['customer_name']=$_POST['name'];
+			$data['customer_mobile']=$_POST['mobile'];
+			$data['movie_name']=$_POST['show_name'];
+			$data['show_time']=$_POST['show_time'];
+			$data['reserve_date']=date($_POST['show_date']);
+			$data['currentdate']=date('Y-m-d');
+			$data['seat_number']=implode(", ", $selectedSeats);
+			$data['totalbill']=$_POST['totalbill'];
+			$data['received']=$_POST['discount_amount'];
+			$data['refarence']=$_POST['discount_ref'];
+			
+			$this->db->insert('discountreservationrecord',$data);
+
+			$invoice['invoice_record']=$this->Login_model->GetInfoByDiscountInvoice($invoice_number);
+			$this->load->view('discountinvoice',$invoice);
+		}else{
+			redirect(base_url('index.php/login')); 
+		}
+	}
+	
 	public function reprint($invoice_number){
 		//Login Check
     	$this->is_logged_in();

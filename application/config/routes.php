@@ -24,6 +24,7 @@ $route['logout'] = 'Welcome/logout';
 $route['BookTicket'] = 'Welcome/ticket_Search';
 $route['Discount'] = 'Welcome/D_ticket_Search';
 $route['UserBookTicket'] = 'Welcome/User_ticket_Search';
+$route['UserDiscount'] = 'Welcome/User_D_ticket_Search';
 
 $route['SitPlan'] = 'Welcome/TicketBookingService';
 $route['DiscountSitPlan'] = 'Welcome/DisCountTicketBookingService';

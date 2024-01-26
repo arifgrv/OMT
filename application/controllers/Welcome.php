@@ -155,6 +155,16 @@ class Welcome extends CI_Controller {
         $data['showtime']=$this->Login_model->showtime();
         $this->load->view('counter/d_ticket_Search', $data);
     }
+    
+	public function User_D_ticket_Search()
+    {
+    	//Login Check
+    	$this->is_logged_in();
+
+        $data['moviename']=$this->Login_model->moviename();
+        $data['showtime']=$this->Login_model->showtime();
+        $this->load->view('user/d_ticket_Search', $data);
+    }
 
     public function User_ticket_Search()
     {

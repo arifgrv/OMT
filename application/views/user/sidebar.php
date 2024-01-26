@@ -12,17 +12,17 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Ticket Sell</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-menu-button-wide"></i><span>Booking</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="<?php echo base_url('index.php/BookTicket'); ?>" target="_blank">
-              <i class="bi bi-circle"></i><span>General Customer</span>
+            <a href="<?php echo base_url('index.php/UserBookTicket'); ?>" target="_blank">
+              <i class="bi bi-circle"></i><span>Online Booking</span>
             </a>
           </li>
           <li>
-            <a href="<?php echo base_url('index.php/Discount'); ?>" target="_blank">
-              <i class="bi bi-circle"></i><span>Discount Customer</span>
+            <a href="<?php echo base_url('index.php/UserDiscount'); ?>" target="_blank">
+              <i class="bi bi-circle"></i><span>Have Discount Voucher?</span>
             </a>
           </li>
         </ul>
